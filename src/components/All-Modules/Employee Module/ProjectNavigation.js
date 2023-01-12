@@ -1,10 +1,10 @@
 import React from 'react'
-import './EmployeeNavigation.css'
+import './ProjectNavigation.css'
 import { useNavigate } from 'react-router-dom'
-import SlideBar from '../../HomeNavigation/SlideBar';
 
 
-function Home() {
+
+function ProjectNavigation() {
 
    const navigate = useNavigate();
 
@@ -27,9 +27,6 @@ function Home() {
             <a className="nav-link">MANAGER</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link">EMPLOYEES</a>
-          </li>
-          <li className="nav-item">
             <a className="nav-link">MY PROFILE</a>
           </li>
           <li className="nav-item">
@@ -43,7 +40,6 @@ function Home() {
   </nav>
   </div>
   <div>
-  <SlideBar />
   </div>
   <footer className='copyrightfooter'> 
   <p> Copyright &#169; By Axis Batch 9 </p>
@@ -52,4 +48,4 @@ function Home() {
   )
 }
 
-export default Home
+export default ProjectNavigation

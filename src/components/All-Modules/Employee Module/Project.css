@@ -1,0 +1,8 @@
+.projectclass{
+    color: black;
+}
+
+.projectclass:hover{
+    background-color: #AE275F;
+    color: white;
+}

@@ -52,10 +52,15 @@ export default function EmployeeLogin() {
     event.preventDefault();
     backdata.map((ele) => {
         if(ele.emailId == emailId && ele.password == password){
-            alert("Login Successful.!")
+            alert("Login Successful!")
             navigate("/employee-module")
+        }else if(ele.emailId != emailId && ele.password == password){
+          alert("Invalid EmailId! ")
+        }else if(ele.emailId == emailId && ele.password != password){
+          alert("Invalid Password! ")
+        }else if(emailId == "" && password == ""){
+          alert("Sundram The Lover Boy! ")
         }
-       
     })
   }
 
@@ -94,7 +99,7 @@ export default function EmployeeLogin() {
               id="email"
               label="Email Address"
               name="email"
-              autoComplete="email"
+              autoComplete="off"
               autoFocus
               onChange={emailChange}
               value={emailId}
@@ -107,7 +112,7 @@ export default function EmployeeLogin() {
               label="Password"
               type="password"
               id="password"
-              autoComplete="current-password"
+              autoComplete="off"
               onChange={passChange}
               value={password}
             />
