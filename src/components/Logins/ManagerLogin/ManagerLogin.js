@@ -11,9 +11,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ArrowBackIosNewTwoToneIcon from '@mui/icons-material/ArrowBackIosNewTwoTone';
 import Navigation from '../../Navigation/Navigations';
 import { useNavigate } from 'react-router-dom'
-import "./EmployeeLogin.css"
-
-
+import "./ManagerLogin.css"
 
 const theme = createTheme();
 
@@ -52,7 +50,7 @@ export default function EmployeeLogin() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Employee Login
+            Manager Login
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField

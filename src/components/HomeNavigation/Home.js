@@ -31,14 +31,21 @@ function Home() {
               <li><a className="dropdown-item" onClick={() => {
                 navigate('/employee-login')
               }}>Employee</a></li>
-              <li><a className="dropdown-item" href="#">Manager</a></li>
-              <li><a className="dropdown-item" href="#">Admin</a></li>
+              <li><a className="dropdown-item" onClick={() => {
+                navigate('/manager-login')
+              }}>Manager</a></li>
+              <li><a className="dropdown-item" onClick={() => {
+                navigate('/admin-login')
+              }}>Admin</a></li>
             </ul>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <footer className='copyrightfooter'> 
+  <p> Copyright &#169; By Axis Batch 9 </p>
+  </footer>
     </>
   )
 }

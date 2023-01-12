@@ -1,16 +1,22 @@
+
 #btnlogin{
     background-color: #AE275F;
     color: white; 
 }
 
-footer{
+
+.copyrightfooter{
     width: 100%;
-    height: 10%;
+    height: 3rem;
     background-color: #e4e4e4;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 20px;
+    margin-bottom: 0;
+}
+
+footer{
+    position:fixed;
     bottom: 0;
-} 
- 
+}
