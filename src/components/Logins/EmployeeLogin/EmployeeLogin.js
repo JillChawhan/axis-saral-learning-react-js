@@ -11,6 +11,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ArrowBackIosNewTwoToneIcon from '@mui/icons-material/ArrowBackIosNewTwoTone';
 import Navigation from '../../Navigation/Navigations';
 import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import "./EmployeeLogin.css"
 
 
@@ -20,18 +22,48 @@ const theme = createTheme();
 
 export default function EmployeeLogin() {
 
+  const [emailId, setEmailId] = useState(" ") 
+  const [password, setPassword] = useState("")
+  const [backdata, setBackData] = useState([])
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const emailChange = (event) => {
+    setEmailId(event.target.value)
+  }
+
+  const passChange = (event) => {
+    setPassword(event.target.value)
+  }
+
+
+  // function submitButton(event){
+  //   event.preventDefault();
+  //  let emailBackData = backdata.find((e) => { 
+  //   //  console.log(e.emailId)
+  //   //  console.log(emailId)
+
+  // }
+  //  )
+  //   console.log(emailBackData)
+  // }
+
+  let submitButton = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    backdata.map((ele) => {
+        if(ele.emailId == emailId && ele.password == password){
+            alert("Login Successful.!")
+            navigate("/employee-module")
+        }
+       
+    })
+  }
 
+  useEffect(()=> {
+    axios.get("http://localhost:8085/employees").then((response) => {
+      setBackData(response.data);
+    })
+  }, [])
 
 
   return (
@@ -54,7 +86,7 @@ export default function EmployeeLogin() {
           <Typography component="h1" variant="h5">
             Employee Login
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -64,6 +96,8 @@ export default function EmployeeLogin() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={emailChange}
+              value={emailId}
             />
             <TextField
               margin="normal"
@@ -74,6 +108,8 @@ export default function EmployeeLogin() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={passChange}
+              value={password}
             />
             
             <Button
@@ -83,6 +119,7 @@ export default function EmployeeLogin() {
               sx={{ mt: 3, mb: 2 }}
               id="btnlogin"
               style={{backgroundColor: "#AE275F"}}
+              onClick={submitButton}
             >
               Sign In
             </Button>
