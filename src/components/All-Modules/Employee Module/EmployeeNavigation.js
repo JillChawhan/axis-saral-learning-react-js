@@ -24,11 +24,13 @@ function Home() {
             }}>PROJECT</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link">MANAGER</a>
+            <a className="nav-link" onClick={
+              () => {
+                navigate("/manager-details")
+              }
+            }>MANAGER</a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link">EMPLOYEES</a>
-          </li>
+          
           <li className="nav-item">
             <a className="nav-link">MY PROFILE</a>
           </li>

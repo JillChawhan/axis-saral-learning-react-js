@@ -24,10 +24,14 @@ function ProjectNavigation() {
             }}>PROJECT</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link">MANAGER</a>
+            <a className="nav-link" aria-current="page" onClick={() =>{
+              navigate("/manager-details")
+            }}>MANAGER</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link">MY PROFILE</a>
+            <a className="nav-link" onClick={() => {
+              navigate("/myprofile-details")
+            }}>MY PROFILE</a>
           </li>
           <li className="nav-item">
             <a className="nav-link" onClick={() => {
@@ -41,9 +45,11 @@ function ProjectNavigation() {
   </div>
   <div>
   </div>
+
   <footer className='copyrightfooter'> 
   <p> Copyright &#169; By Axis Batch 9 </p>
   </footer>
+  
     </>
   )
 }

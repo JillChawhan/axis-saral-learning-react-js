@@ -1,0 +1,15 @@
+.opp-card {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px 100px 5px 100px;
+    /* height: 100vh; */
+}
+
+.oppcard{
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding-top: 20px;
+}
+

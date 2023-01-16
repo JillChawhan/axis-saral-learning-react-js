@@ -54,6 +54,9 @@ export default function EmployeeLogin() {
         if(ele.emailId == emailId && ele.password == password){
             alert("Login Successful!")
             navigate("/employee-module")
+            // Session management 
+            // const userLogged = localStorage.getItem("userLogged");
+            localStorage.setItem("LoginData", JSON.stringify(ele));
         }else if(ele.emailId != emailId && ele.password == password){
           alert("Invalid EmailId! ")
         }else if(ele.emailId == emailId && ele.password != password){

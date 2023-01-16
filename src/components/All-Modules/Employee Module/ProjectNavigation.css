@@ -62,6 +62,8 @@
     text-align: center;
     padding-top: 20px;
     margin-bottom: 0;
+    position: fixed;
+    z-index: 2;
 }
 
 footer{
@@ -76,7 +78,7 @@ footer{
 
 
 .headerposition{
-
     width: 100%;
-    position: sticky;
+    /* position: sticky; */
+    z-index: 2;
 }
