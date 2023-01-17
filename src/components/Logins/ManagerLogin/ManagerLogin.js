@@ -51,19 +51,20 @@ export default function ManagerLogin() {
 
   let submitButton = (event) => {
     event.preventDefault();
-
     backdata.map((ele) => {
-      if(ele.emailId == emailId && ele.password == password) {
-        alert("Login Successful!");
-        navigate("/");
-      }else if (ele.emailId != emailId && ele.password == password) {
-        alert("Invalid EmailId! ");
-      }else if (ele.emailId == emailId && ele.password != password) {
-        alert("Invalid Password! ");
-      }else if (emailId == "" && password == "") {
-        alert("Sundram The Lover Boy! ");
+      if(ele.emailId == emailId && ele.password == password){
+        alert("Login Successful")
+
+        localStorage.setItem("managerLogin", JSON.stringify(ele))
+
+        navigate("/manager-module")
+
+      }else if (ele.emailId != emailId && ele.password == password){
+        alert("Invalid Email Id")
+      }else if (ele.emailId == emailId && ele.password != password){
+        alert("Invalid Password")
       }
-    });
+    })
   };
 
   useEffect(() => {
@@ -104,7 +105,7 @@ export default function ManagerLogin() {
 
             <Box
               component="form"
-              onChange={emailChange}
+              
               noValidate
               sx={{ mt: 1 }}
             >
@@ -115,7 +116,8 @@ export default function ManagerLogin() {
                 id="email"
                 label="Email Address"
                 name="email"
-                autoComplete= "none"
+                autoComplete="none"
+                onChange={emailChange}
                 autoFocus
               />
 
@@ -127,7 +129,7 @@ export default function ManagerLogin() {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete= "none"
+                autoComplete="none"
                 onChange={passChange}
                 value={password}
               />

@@ -11,6 +11,11 @@ import ProjectDetails from './components/All-Modules/Employee Module/ProjectDeta
 import Manager from './components/All-Modules/Employee Module/Manager';
 import MyProfile from './components/All-Modules/Employee Module/MyProfile';
 import Opportunity from './components/All-Modules/Employee Module/Opportunity';
+import ManagerNavigation from './components/All-Modules/Manager Module/ManagerNavigation';
+import ManagerProjects from './components/All-Modules/Manager Module/ManagerProjects';
+import ManagerProjectDetails from './components/All-Modules/Manager Module/ManagerProjectDetails';
+import ManagerEmployees from './components/All-Modules/Manager Module/ManagerEmployees';
+import ManagerMyProfile from './components/All-Modules/Manager Module/MyProfile';
 
 const App = () => {
   return (
@@ -26,6 +31,11 @@ const App = () => {
         <Route path="/manager-details" element={<Manager />}></Route>
         <Route path="/myprofile-details" element={<MyProfile/>}></Route>
         <Route path="/opportunities" element={<Opportunity />}></Route>
+        <Route path="/manager-module" element={<ManagerNavigation />}></Route>
+        <Route path="/manager-project" element={<ManagerProjects />}></Route>
+        <Route path="/manager-project-details" element={<ManagerProjectDetails />}></Route>
+        <Route path="/manager-employees" element={<ManagerEmployees />}></Route>
+        <Route path="/manager-profile" element={<ManagerMyProfile />}></Route>
       </Routes>
       
     </>
