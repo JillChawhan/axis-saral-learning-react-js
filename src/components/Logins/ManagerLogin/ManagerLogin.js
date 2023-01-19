@@ -51,20 +51,33 @@ export default function ManagerLogin() {
 
   let submitButton = (event) => {
     event.preventDefault();
-    backdata.map((ele) => {
-      if(ele.emailId == emailId && ele.password == password){
-        alert("Login Successful")
+    // backdata.map((ele) => {
+    //   if(ele.emailId == emailId && ele.password == password){
+    //     alert("Login Successful")
 
-        localStorage.setItem("managerLogin", JSON.stringify(ele))
+    //     localStorage.setItem("managerLogin", JSON.stringify(ele))
 
-        navigate("/manager-module")
+    //     navigate("/manager-module")
 
-      }else if (ele.emailId != emailId && ele.password == password){
-        alert("Invalid Email Id")
-      }else if (ele.emailId == emailId && ele.password != password){
-        alert("Invalid Password")
+    //   }else if (ele.emailId != emailId && ele.password == password){
+    //     alert("Invalid Email Id")
+    //   }else if (ele.emailId == emailId && ele.password != password){
+    //     alert("Invalid Password")
+    //   }
+    // })
+    const found = backdata.find((element) => element.emailId == emailId);
+    //console.log(found);
+    if (found == undefined) {
+      alert("Invalid Credentials");
+    } else {
+      if (found.emailId == emailId && found.password == password) {
+        alert("Login Successfull");
+        navigate("/manager-module");
+        localStorage.setItem("managerLogin", JSON.stringify(found));
+      } else {
+        alert("Credentials are not found.");
       }
-    })
+    }
   };
 
   useEffect(() => {
@@ -103,12 +116,7 @@ export default function ManagerLogin() {
               Manager Login
             </Typography>
 
-            <Box
-              component="form"
-              
-              noValidate
-              sx={{ mt: 1 }}
-            >
+            <Box component="form" noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
