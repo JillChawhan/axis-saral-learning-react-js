@@ -50,6 +50,17 @@ function Home() {
                   <a
                     className="nav-link"
                     onClick={() => {
+                      navigate("/employee-documents");
+                    }}
+                  >
+                    MY DOCUMENTS
+                  </a>
+                </li>
+
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    onClick={() => {
                       navigate("/myprofile-details");
                     }}
                   >
