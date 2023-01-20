@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import ManagerProjectNav from "./ManagerProjectNav";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
-import "./ManagerEmployees.css";
+import "./AdminManagers.css";
+import AdminNavigation from "./AdminNavigation";
 
-const ManagerEmployees = () => {
+const AdminManagers = () => {
   const [employeeData, setEmployeeData] = useState([]);
 
   const [employeeSearch, setEmployeeSearch] = useState("");
@@ -12,7 +12,7 @@ const ManagerEmployees = () => {
   const empsearch = (event) => {
     setEmployeeSearch(event.target.value);
     if (event.target.value == "") {
-      axios.get("http://localhost:8085/employees").then((response) => {
+      axios.get("http://localhost:8085/managers").then((response) => {
         setEmployeeData(response.data);
       });
     }
@@ -21,7 +21,7 @@ const ManagerEmployees = () => {
   const employeeClick = () => {
     let newEmployeeData = employeeData.filter((e) => {
       return (
-        e.employeeName.substring(0, employeeSearch.length).toLowerCase() ==
+        e.managerName.substring(0, employeeSearch.length).toLowerCase() ==
         employeeSearch.toLowerCase()
       );
     });
@@ -29,21 +29,21 @@ const ManagerEmployees = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:8085/employees").then((response) => {
+    axios.get("http://localhost:8085/managers").then((response) => {
       setEmployeeData(response.data);
     });
   }, []);
 
   return (
     <>
-      <ManagerProjectNav />
+      <AdminNavigation />
       <div className="employeesearch">
         <div className="input-group">
           <div className="employeeinput">
             <input
               type="search"
               className="form-control"
-              placeholder="Employee name"
+              placeholder="Manager name"
               onChange={empsearch}
             />
           </div>
@@ -63,22 +63,22 @@ const ManagerEmployees = () => {
               <Card>
                 <Card.Header className="managercard">
                   {" "}
-                  Employee Details{" "}
+                  Manager Details{" "}
                 </Card.Header>
                 <Card.Body>
-                  <Card.Title>Employee Name: </Card.Title>
-                  <Card.Text>{ele.employeeName} </Card.Text>
+                  <Card.Title>Manager Name: </Card.Title>
+                  <Card.Text>{ele.managerName} </Card.Text>
 
-                  <Card.Title>Employee ID: </Card.Title>
-                  <Card.Text>{ele.employeeId} </Card.Text>
+                  <Card.Title>Manager ID: </Card.Title>
+                  <Card.Text>{ele.managerId} </Card.Text>
 
-                  <Card.Title>Employee Designation: </Card.Title>
+                  <Card.Title>Manager Designation: </Card.Title>
                   <Card.Text>{ele.designation} </Card.Text>
 
-                  <Card.Title>Employee Email: </Card.Title>
+                  <Card.Title>Manager Email: </Card.Title>
                   <Card.Text>{ele.emailId} </Card.Text>
 
-                  <Card.Title>Employee MobileNo: </Card.Title>
+                  <Card.Title>Manager MobileNo: </Card.Title>
                   <Card.Text>{ele.mobileNo} </Card.Text>
                   <hr />
                 </Card.Body>
@@ -91,4 +91,4 @@ const ManagerEmployees = () => {
   );
 };
 
-export default ManagerEmployees;
+export default AdminManagers;

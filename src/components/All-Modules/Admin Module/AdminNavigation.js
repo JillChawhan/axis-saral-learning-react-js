@@ -1,8 +1,8 @@
 import React from "react";
-import "./ProjectNavigation.css";
+import "./AdminNavigation.css";
 import { useNavigate } from "react-router-dom";
 
-function ProjectNavigation() {
+function AdminNavigation() {
   const navigate = useNavigate();
 
   return (
@@ -13,7 +13,7 @@ function ProjectNavigation() {
             <a
               className="navbar-brand"
               onClick={() => {
-                navigate("/employee-module");
+                navigate("/admin-project");
               }}
             >
               Axis SARAL Learning
@@ -28,7 +28,7 @@ function ProjectNavigation() {
                     className="nav-link"
                     aria-current="page"
                     onClick={() => {
-                      navigate("/employee-project");
+                      navigate("/admin-project");
                     }}
                   >
                     PROJECT
@@ -37,9 +37,8 @@ function ProjectNavigation() {
                 <li className="nav-item">
                   <a
                     className="nav-link"
-                    aria-current="page"
                     onClick={() => {
-                      navigate("/manager-details");
+                      navigate("/admin-managers");
                     }}
                   >
                     MANAGER
@@ -49,12 +48,13 @@ function ProjectNavigation() {
                   <a
                     className="nav-link"
                     onClick={() => {
-                      navigate("/myprofile-details");
+                      navigate("/admin-employees");
                     }}
                   >
-                    MY PROFILE
+                    EMPLOYEE
                   </a>
                 </li>
+
                 <li className="nav-item">
                   <a
                     className="nav-link"
@@ -70,8 +70,6 @@ function ProjectNavigation() {
           </div>
         </nav>
       </div>
-      <div></div>
-
       <footer className="copyrightfooter">
         <p> Copyright &#169; By Axis Batch 9 </p>
       </footer>
@@ -79,4 +77,4 @@ function ProjectNavigation() {
   );
 }
 
-export default ProjectNavigation;
+export default AdminNavigation;

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import ManagerProjectNav from "./ManagerProjectNav";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
-import "./ManagerEmployees.css";
+import "./AdminEmployees.css";
+import AdminNavigation from "./AdminNavigation";
 
-const ManagerEmployees = () => {
+const AdminEmployees = () => {
   const [employeeData, setEmployeeData] = useState([]);
 
   const [employeeSearch, setEmployeeSearch] = useState("");
@@ -36,7 +36,7 @@ const ManagerEmployees = () => {
 
   return (
     <>
-      <ManagerProjectNav />
+      <AdminNavigation />
       <div className="employeesearch">
         <div className="input-group">
           <div className="employeeinput">
@@ -91,4 +91,4 @@ const ManagerEmployees = () => {
   );
 };
 
-export default ManagerEmployees;
+export default AdminEmployees;

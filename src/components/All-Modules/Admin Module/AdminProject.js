@@ -1,19 +1,20 @@
 import Card from "react-bootstrap/Card";
-import ProjectNavigation from "./ProjectNavigation";
-import "./Project.css";
+// import ProjectNavigation from "./ProjectNavigation";
+import "./AdminProject.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import AdminNavigation from "./AdminNavigation";
 
-function Project() {
+function AdminProject() {
   const [projectData, setProjectData] = useState([]);
   const navigate = useNavigate();
 
   const projectSubmit = (ele1) => {
     console.log(ele1);
     //  let eleState = Array.from(...ele)
-    localStorage.setItem("Data", JSON.stringify(ele1));
-    navigate("/project-details");
+    localStorage.setItem("AdminProject", JSON.stringify(ele1));
+    navigate("/admin-project-details");
   };
 
   useEffect(() => {
@@ -24,7 +25,7 @@ function Project() {
 
   return (
     <>
-      <ProjectNavigation />
+      <AdminNavigation />
       <div className="divflex">
         {projectData.map((ele) => {
           return (
@@ -61,4 +62,4 @@ function Project() {
   );
 }
 
-export default Project;
+export default AdminProject;
