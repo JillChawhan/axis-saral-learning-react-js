@@ -16,6 +16,8 @@ const SalarySlip = () => {
   const [salaryEmployeeData, setSalaryEmployeeData] = useState([]);
 
   const navigate = useNavigate();
+  
+  // getting the data from the localstorage...
 
   let salarySlip1 = localStorage.getItem("SalarySlip");
 
