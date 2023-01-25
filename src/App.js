@@ -23,6 +23,7 @@ import AdminEmployees from "./components/All-Modules/Admin Module/AdminEmployees
 import AdminManagers from "./components/All-Modules/Admin Module/AdminManagers";
 import MyDocuments from "./components/All-Modules/Employee Module/MyDocuments";
 import SalarySlip from "./components/All-Modules/Employee Module/SalarySlip";
+import EmployeeSearch from "./components/All-Modules/Employee Module/Employee-Search";
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/project-details" element={<ProjectDetails />}></Route>
         <Route path="/employee-documents" element={<MyDocuments />}></Route>
         <Route path="/employee-salaryslip" element={<SalarySlip />}></Route>
+        <Route path="/employee-search" element={<EmployeeSearch />}></Route>
         <Route path="/manager-details" element={<Manager />}></Route>
         <Route path="/myprofile-details" element={<MyProfile />}></Route>
         <Route path="/opportunities" element={<Opportunity />}></Route>
