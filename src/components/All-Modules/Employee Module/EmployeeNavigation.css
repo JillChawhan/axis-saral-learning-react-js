@@ -75,7 +75,9 @@ footer {
 
 .headerposition {
   width: 100%;
-  position: sticky;
+  /* position: sticky; */
+  /* margin-bottom: 5px; */
+  position: fixed;
 }
 
 .navbar {

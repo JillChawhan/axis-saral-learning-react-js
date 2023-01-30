@@ -16,7 +16,8 @@ import "./EmployeeNewsFeed.css";
 const EmployeeNewsFeed = () => {
   const [newsData, setNewsData] = useState([]);
   const [commentInput, setCommentInput] = useState("");
-
+  const [sh, setsh] = useState(false);
+  const [shows, setshows] = useState("Comments");
   const setCommentData = (e) => {
     setCommentInput(e.target.value);
   };
@@ -24,9 +25,12 @@ const EmployeeNewsFeed = () => {
   let newsEmpData1 = localStorage.getItem("LoginData");
   let newsEmpData2 = JSON.parse(newsEmpData1);
   console.log(newsEmpData2);
-
+  const show1 = () => {
+    setsh(sh == false ? true : false);
+    setshows(shows == "Comments" ? "Close Comments" : "Comments");
+  };
   const addComment = (ele) => {
-    // console.log(commentInput);
+    console.log(ele);
     let data = {
       message: commentInput,
       name: newsEmpData2.employeeName,
@@ -35,7 +39,10 @@ const EmployeeNewsFeed = () => {
       .post(`http://localhost:8088/news/${ele.newsFeedId}/comment/add`, data)
       .then((response) => response);
 
-    document.getElementById("form1").value = null;
+    document.getElementById("form1").value = "";
+    axios.get("http://localhost:8088/news").then((response) => {
+      setNewsData(response.data);
+    });
   };
 
   useEffect(() => {
@@ -104,28 +111,45 @@ const EmployeeNewsFeed = () => {
                           style={{ backgroundColor: "#AE275F" }}
                           onClick={() => {
                             addComment(ele);
-                            alert("Comment is Added Successfully.");
+                            alert(
+                              "Comment is Added Successfully.",
+                              window.location.reload()
+                            );
                           }}
                         >
                           Add Comment
                         </Button>
                       </MDBCardBody>
-                      {newsData.comments !=
-                        null?.map((ele1) => {
+                      <p onClick={show1}>{shows}</p>
+                      <div style={{ display: sh ? "block" : "none" }}>
+                        {ele.comments?.map((ele1) => {
                           console.log(ele1);
                           return (
                             <>
-                              <MDBCardBody className="pb-0">
-                                <div className="d-flex justify-content-between">
-                                  <p>
-                                    <p className="text-dark">{ele1.name}</p>
-                                    <p className="text-dark">{ele1.message}</p>
-                                  </p>
+                              <div className="d-flex mb-3">
+                                <a>
+                                  <img
+                                    src="https://storage.needpix.com/thumbs/blank-profile-picture-973460_1280.png"
+                                    className="border rounded-circle me-2"
+                                    alt="Avatar"
+                                    style={{ height: "40px" }}
+                                  />
+                                </a>
+                                <div>
+                                  <div className="bg-light rounded-3 px-3 py-1">
+                                    <a className="text-dark mb-0">
+                                      <strong>{ele1.name}</strong>
+                                    </a>
+                                    <a className="text-muted d-block">
+                                      <small>{ele1.message}</small>
+                                    </a>
+                                  </div>
                                 </div>
-                              </MDBCardBody>
+                              </div>
                             </>
                           );
                         })}
+                      </div>
                     </MDBCard>
                   </MDBCol>
                 </MDBRow>

@@ -29,13 +29,16 @@ import PrivateRouteManager from "./components/Logins/ManagerLogin/PrivateRouteMa
 import PrivateAdmin from "./components/Logins/AdminLogin/PrivateAdmin";
 import AdminNewsFeed from "./components/All-Modules/Admin Module/Admin-News-Feed/AdminNewsFeed";
 import EmployeeNewsFeed from "./components/All-Modules/Employee Module/Employee-News-Feed/EmployeeNewsFeed";
+import Products from "./components/HomeNavigation/Products-Services/Products";
 
 const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />}>
-          {" "}
+          Home Page
+        </Route>
+        <Route path="/products-services" element={<Products />}>
           Home Page
         </Route>
         <Route path="/employee-login" element={<EmployeeLogin />}></Route>

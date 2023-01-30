@@ -44,8 +44,13 @@ function Home() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  About Us
+                <a
+                  className="nav-link"
+                  onClick={() => {
+                    navigate("/products-services");
+                  }}
+                >
+                  PRODUCTS & SERVICES
                 </a>
               </li>
               <li className="nav-item dropdown">
