@@ -48,6 +48,7 @@ export default function AdminLogin() {
     } else {
       if (found.adminemailId == emailId && found.adminPassword == password) {
         alert("Login Successful");
+        localStorage.setItem("admin", JSON.stringify(found));
         navigate("/admin-news-feed");
       } else {
         alert("Credentials are not found");
@@ -62,10 +63,10 @@ export default function AdminLogin() {
   }, []);
 
   return (
-    <>
+    <div className="admin-img">
       <Navigation />
       <ThemeProvider theme={theme}>
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" className="login-admin">
           <CssBaseline />
           <Box
             sx={{
@@ -144,6 +145,6 @@ export default function AdminLogin() {
       <footer className="copyrightfooter">
         <p> Copyright &#169; By Axis Batch 9 </p>
       </footer>
-    </>
+    </div>
   );
 }

@@ -27,6 +27,7 @@ import EmployeeSearch from "./components/All-Modules/Employee Module/Employee-Se
 import PrivateRouteAxis from "./components/Logins/EmployeeLogin/PrivateRouteAxis";
 import PrivateRouteManager from "./components/Logins/ManagerLogin/PrivateRouteManager";
 import PrivateAdmin from "./components/Logins/AdminLogin/PrivateAdmin";
+import AdminNewsFeed from "./components/All-Modules/Admin Module/Admin-News-Feed/AdminNewsFeed";
 
 const App = () => {
   return (
@@ -114,6 +115,10 @@ const App = () => {
         <Route
           path="/admin-managers"
           element={<PrivateAdmin children={<AdminManagers />} />}
+        ></Route>
+        <Route
+          path="/admin-news-feed"
+          element={<PrivateAdmin children={<AdminNewsFeed />} />}
         ></Route>
       </Routes>
     </>

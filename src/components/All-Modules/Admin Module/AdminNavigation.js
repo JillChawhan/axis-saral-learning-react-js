@@ -18,7 +18,7 @@ function AdminNavigation() {
             <a
               className="navbar-brand"
               onClick={() => {
-                navigate("/admin-project");
+                navigate("/admin-news-feed");
               }}
             >
               Axis SARAL Learning

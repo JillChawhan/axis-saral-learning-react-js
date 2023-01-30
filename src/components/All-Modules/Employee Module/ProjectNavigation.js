@@ -2,6 +2,7 @@ import React from "react";
 import "./ProjectNavigation.css";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../../Logins/EmployeeLogin/CheckLoginAxis";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 function ProjectNavigation() {
   const navigate = useNavigate();
@@ -58,8 +59,18 @@ function ProjectNavigation() {
                       navigate("/employee-documents");
                     }}
                   >
-                    MY DOCUMENTS
+                    DOCUMENTS
                   </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    onClick={() => {
+                      navigate("/employee-module");
+                    }}
+                  >
+                    DOCUMENTS
+                  </a>{" "}
                 </li>
                 <li className="nav-item">
                   <a
@@ -68,7 +79,7 @@ function ProjectNavigation() {
                       navigate("/myprofile-details");
                     }}
                   >
-                    MY PROFILE
+                    PROFILE
                   </a>
                 </li>
                 <li className="nav-item">
@@ -78,7 +89,7 @@ function ProjectNavigation() {
                       handleSubmit();
                     }}
                   >
-                    LOGOUT
+                    <LogoutIcon />
                   </a>
                 </li>
               </ul>

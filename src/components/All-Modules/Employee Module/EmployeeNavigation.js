@@ -1,8 +1,9 @@
 import React from "react";
 import "./EmployeeNavigation.css";
-import { useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import SlideBar from "../../HomeNavigation/SlideBar";
 import { logOut } from "../../Logins/EmployeeLogin/CheckLoginAxis";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 function Home() {
   const navigate = useNavigate();
@@ -56,10 +57,21 @@ function Home() {
                   <a
                     className="nav-link"
                     onClick={() => {
+                      navigate("/employee-module");
+                    }}
+                  >
+                    DOCUMENTS
+                  </a>{" "}
+                </li>
+
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    onClick={() => {
                       navigate("/employee-documents");
                     }}
                   >
-                    MY DOCUMENTS
+                    DOWNLOADS
                   </a>
                 </li>
 
@@ -70,7 +82,7 @@ function Home() {
                       navigate("/myprofile-details");
                     }}
                   >
-                    MY PROFILE
+                    PROFILE
                   </a>
                 </li>
                 <li className="nav-item">
@@ -80,7 +92,7 @@ function Home() {
                       handleClick();
                     }}
                   >
-                    LOGOUT
+                    <LogoutIcon />
                   </a>
                 </li>
               </ul>

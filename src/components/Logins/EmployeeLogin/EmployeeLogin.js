@@ -18,7 +18,7 @@ import "./EmployeeLogin.css";
 const theme = createTheme();
 
 export default function EmployeeLogin() {
-  const [emailId, setEmailId] = useState(" ");
+  const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
   const [backdata, setBackData] = useState([]);
   const navigate = useNavigate();
@@ -66,7 +66,7 @@ export default function EmployeeLogin() {
   }, []);
 
   return (
-    <div className="bg-image">
+    <div className="bg-image1">
       <Navigation />
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs" className="login-emp">
