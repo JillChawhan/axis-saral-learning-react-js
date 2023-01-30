@@ -21,7 +21,7 @@ function Home() {
             <a
               className="navbar-brand"
               onClick={() => {
-                navigate("/employee-module");
+                navigate("/employee-news-feed");
               }}
             >
               Axis SARAL Learning

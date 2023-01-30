@@ -28,6 +28,7 @@ import PrivateRouteAxis from "./components/Logins/EmployeeLogin/PrivateRouteAxis
 import PrivateRouteManager from "./components/Logins/ManagerLogin/PrivateRouteManager";
 import PrivateAdmin from "./components/Logins/AdminLogin/PrivateAdmin";
 import AdminNewsFeed from "./components/All-Modules/Admin Module/Admin-News-Feed/AdminNewsFeed";
+import EmployeeNewsFeed from "./components/All-Modules/Employee Module/Employee-News-Feed/EmployeeNewsFeed";
 
 const App = () => {
   return (
@@ -63,6 +64,10 @@ const App = () => {
         <Route
           path="/employee-search"
           element={<PrivateRouteAxis children={<EmployeeSearch />} />}
+        ></Route>
+        <Route
+          path="/employee-news-feed"
+          element={<PrivateRouteAxis children={<EmployeeNewsFeed />} />}
         ></Route>
         <Route
           path="/manager-details"

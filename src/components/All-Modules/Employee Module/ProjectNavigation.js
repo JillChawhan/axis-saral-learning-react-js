@@ -20,7 +20,7 @@ function ProjectNavigation() {
             <a
               className="navbar-brand"
               onClick={() => {
-                navigate("/employee-module");
+                navigate("/employee-news-feed");
               }}
             >
               Axis SARAL Learning
@@ -56,7 +56,7 @@ function ProjectNavigation() {
                   <a
                     className="nav-link"
                     onClick={() => {
-                      navigate("/employee-documents");
+                      navigate("/employee-module");
                     }}
                   >
                     DOCUMENTS
@@ -66,10 +66,10 @@ function ProjectNavigation() {
                   <a
                     className="nav-link"
                     onClick={() => {
-                      navigate("/employee-module");
+                      navigate("/employee-documents");
                     }}
                   >
-                    DOCUMENTS
+                    DOWNLOADS
                   </a>{" "}
                 </li>
                 <li className="nav-item">

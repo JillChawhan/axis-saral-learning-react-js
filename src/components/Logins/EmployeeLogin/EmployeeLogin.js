@@ -51,7 +51,7 @@ export default function EmployeeLogin() {
     } else {
       if (found.emailId == emailId && found.password == password) {
         alert("Login Successfull");
-        navigate("/employee-module");
+        navigate("/employee-news-feed");
         localStorage.setItem("LoginData", JSON.stringify(found));
       } else {
         alert("Credentials are not found.");
