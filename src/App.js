@@ -24,7 +24,9 @@ import AdminManagers from "./components/All-Modules/Admin Module/AdminManagers";
 import MyDocuments from "./components/All-Modules/Employee Module/MyDocuments";
 import SalarySlip from "./components/All-Modules/Employee Module/SalarySlip";
 import EmployeeSearch from "./components/All-Modules/Employee Module/Employee-Search";
-import AdminNewsFeed from "./components/All-Modules/Admin Module/Admin-News-Feed/AdminNewsFeed";
+import PrivateRouteAxis from "./components/Logins/EmployeeLogin/PrivateRouteAxis";
+import PrivateRouteManager from "./components/Logins/ManagerLogin/PrivateRouteManager";
+import PrivateAdmin from "./components/Logins/AdminLogin/PrivateAdmin";
 
 const App = () => {
   return (
@@ -37,32 +39,82 @@ const App = () => {
         <Route path="/employee-login" element={<EmployeeLogin />}></Route>
         <Route path="/manager-login" element={<ManagerLogin />}></Route>
         <Route path="/admin-login" element={<AdminLogin />}></Route>
-        <Route path="/employee-module" element={<EmployeeNavigation />}></Route>
-        <Route path="/employee-project" element={<Project />}></Route>
-        <Route path="/project-details" element={<ProjectDetails />}></Route>
-        <Route path="/employee-documents" element={<MyDocuments />}></Route>
-        <Route path="/employee-salaryslip" element={<SalarySlip />}></Route>
-        <Route path="/employee-search" element={<EmployeeSearch />}></Route>
-        <Route path="/manager-details" element={<Manager />}></Route>
-        <Route path="/myprofile-details" element={<MyProfile />}></Route>
-        <Route path="/opportunities" element={<Opportunity />}></Route>
-        <Route path="/manager-module" element={<ManagerNavigation />}></Route>
-        <Route path="/manager-project" element={<ManagerProjects />}></Route>
+        <Route
+          path="/employee-module"
+          element={<PrivateRouteAxis children={<EmployeeNavigation />} />}
+        ></Route>
+        <Route
+          path="/employee-project"
+          element={<PrivateRouteAxis children={<Project />} />}
+        ></Route>
+        <Route
+          path="/project-details"
+          element={<PrivateRouteAxis children={<ProjectDetails />} />}
+        ></Route>
+        <Route
+          path="/employee-documents"
+          element={<PrivateRouteAxis children={<MyDocuments />} />}
+        ></Route>
+        <Route
+          path="/employee-salaryslip"
+          element={<PrivateRouteAxis children={<SalarySlip />} />}
+        ></Route>
+        <Route
+          path="/employee-search"
+          element={<PrivateRouteAxis children={<EmployeeSearch />} />}
+        ></Route>
+        <Route
+          path="/manager-details"
+          element={<PrivateRouteAxis children={<Manager />} />}
+        ></Route>
+        <Route
+          path="/myprofile-details"
+          element={<PrivateRouteAxis children={<MyProfile />} />}
+        ></Route>
+        <Route
+          path="/opportunities"
+          element={<PrivateRouteAxis children={<Opportunity />} />}
+        ></Route>
+        <Route
+          path="/manager-module"
+          element={<PrivateRouteManager children={<ManagerNavigation />} />}
+        ></Route>
+        <Route
+          path="/manager-project"
+          element={<PrivateRouteManager children={<ManagerProjects />} />}
+        ></Route>
         <Route
           path="/manager-project-details"
-          element={<ManagerProjectDetails />}
+          element={<PrivateRouteManager children={<ManagerProjectDetails />} />}
         ></Route>
-        <Route path="/manager-employees" element={<ManagerEmployees />}></Route>
-        <Route path="/manager-profile" element={<ManagerMyProfile />}></Route>
-        <Route path="/admin-module" element={<AdminNavigation />}></Route>
-        <Route path="/admin-project" element={<AdminProject />}></Route>
+        <Route
+          path="/manager-employees"
+          element={<PrivateRouteManager children={<ManagerEmployees />} />}
+        ></Route>
+        <Route
+          path="/manager-profile"
+          element={<PrivateRouteManager children={<ManagerMyProfile />} />}
+        ></Route>
+        <Route
+          path="/admin-module"
+          element={<PrivateAdmin children={<AdminNavigation />} />}
+        ></Route>
+        <Route
+          path="/admin-project"
+          element={<PrivateAdmin children={<AdminProject />} />}
+        ></Route>
         <Route
           path="/admin-project-details"
-          element={<AdminProjectDetails />}
+          element={<PrivateAdmin children={<AdminProjectDetails />} />}
         ></Route>
-        <Route path="/admin-employees" element={<AdminEmployees />}></Route>
-        <Route path="/admin-managers" element={<AdminManagers />}></Route>
-        <Route path="/admin-news-feed" element={<AdminNewsFeed />}></Route>
+        <Route
+          path="/admin-employees"
+          element={<PrivateAdmin children={<AdminEmployees />} />}
+        ></Route>
+        <Route
+          path="/admin-managers"
+          element={<PrivateAdmin children={<AdminManagers />} />}
+        ></Route>
       </Routes>
     </>
   );

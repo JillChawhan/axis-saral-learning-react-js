@@ -1,9 +1,15 @@
 import React from "react";
 import "./ProjectNavigation.css";
 import { useNavigate } from "react-router-dom";
+import { logOut } from "../../Logins/EmployeeLogin/CheckLoginAxis";
 
 function ProjectNavigation() {
   const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    logOut();
+    navigate("/");
+  };
 
   return (
     <>
@@ -69,7 +75,7 @@ function ProjectNavigation() {
                   <a
                     className="nav-link"
                     onClick={() => {
-                      navigate("/");
+                      handleSubmit();
                     }}
                   >
                     LOGOUT

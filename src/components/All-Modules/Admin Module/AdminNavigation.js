@@ -1,9 +1,14 @@
 import React from "react";
 import "./AdminNavigation.css";
 import { useNavigate } from "react-router-dom";
+import { logOut } from "../../Logins/AdminLogin/CheckAdminLogin";
 
 function AdminNavigation() {
   const navigate = useNavigate();
+  const handleClick = () => {
+    logOut();
+    navigate("/");
+  };
 
   return (
     <>
@@ -13,7 +18,7 @@ function AdminNavigation() {
             <a
               className="navbar-brand"
               onClick={() => {
-                navigate("/admin-news-feed");
+                navigate("/admin-project");
               }}
             >
               Axis SARAL Learning
@@ -59,7 +64,7 @@ function AdminNavigation() {
                   <a
                     className="nav-link"
                     onClick={() => {
-                      navigate("/");
+                      handleClick();
                     }}
                   >
                     LOGOUT

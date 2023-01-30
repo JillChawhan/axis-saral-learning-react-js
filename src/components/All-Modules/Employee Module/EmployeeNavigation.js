@@ -2,9 +2,15 @@ import React from "react";
 import "./EmployeeNavigation.css";
 import { useNavigate } from "react-router-dom";
 import SlideBar from "../../HomeNavigation/SlideBar";
+import { logOut } from "../../Logins/EmployeeLogin/CheckLoginAxis";
 
 function Home() {
   const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/");
+    logOut();
+  };
 
   return (
     <>
@@ -25,7 +31,6 @@ function Home() {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  
                   <a
                     className="nav-link"
                     aria-current="page"
@@ -72,7 +77,7 @@ function Home() {
                   <a
                     className="nav-link"
                     onClick={() => {
-                      navigate("/");
+                      handleClick();
                     }}
                   >
                     LOGOUT
