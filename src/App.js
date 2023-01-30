@@ -24,6 +24,7 @@ import AdminManagers from "./components/All-Modules/Admin Module/AdminManagers";
 import MyDocuments from "./components/All-Modules/Employee Module/MyDocuments";
 import SalarySlip from "./components/All-Modules/Employee Module/SalarySlip";
 import EmployeeSearch from "./components/All-Modules/Employee Module/Employee-Search";
+import AdminNewsFeed from "./components/All-Modules/Admin Module/Admin-News-Feed/AdminNewsFeed";
 
 const App = () => {
   return (
@@ -61,6 +62,7 @@ const App = () => {
         ></Route>
         <Route path="/admin-employees" element={<AdminEmployees />}></Route>
         <Route path="/admin-managers" element={<AdminManagers />}></Route>
+        <Route path="/admin-news-feed" element={<AdminNewsFeed />}></Route>
       </Routes>
     </>
   );

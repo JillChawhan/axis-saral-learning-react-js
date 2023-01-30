@@ -48,7 +48,7 @@ export default function AdminLogin() {
     } else {
       if (found.adminemailId == emailId && found.adminPassword == password) {
         alert("Login Successful");
-        navigate("/admin-project");
+        navigate("/admin-news-feed");
       } else {
         alert("Credentials are not found");
       }

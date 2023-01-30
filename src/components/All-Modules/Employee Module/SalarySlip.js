@@ -16,7 +16,7 @@ const SalarySlip = () => {
   const [salaryEmployeeData, setSalaryEmployeeData] = useState([]);
 
   const navigate = useNavigate();
-  
+
   // getting the data from the localstorage...
 
   let salarySlip1 = localStorage.getItem("SalarySlip");
@@ -26,7 +26,7 @@ const SalarySlip = () => {
   console.log(salarySlip2);
 
   useEffect(() => {
-    axios.get("http://localhost:8087/salaryslip/employees").then((response) => {
+    axios.get("http://localhost:8085/employees").then((response) => {
       setSalaryEmployeeData(response.data);
     });
   }, []);
@@ -71,71 +71,11 @@ const SalarySlip = () => {
                     <Card.Body> </Card.Body>
                   </Card>
 
-                  {/* <table>
-
-                        <tr>
-
-                          <td>Employee Id: {ele.employeeId}</td>
-
-                        </tr>
-
-                        <tr>
-
-                          <td>Designation: {ele.designation}</td>
-
-                        </tr>
-
-                        <br />
-
-                        <th>
-
-                          <td> Standard Monthly Salary</td>
-
-                        </th>
-
-                        <tr>
-
-                          <td> Basic Pay : {salarySlip2.basicPay}</td>
-
-                        </tr>
-
-                        <tr>
-
-                          <td> Allowance: {salarySlip2.allowance}</td>
-
-                        </tr>
-
-                        <tr>
-
-                          <td> Location Pay: {salarySlip2.locationPay}</td>
-
-                        </tr>
-
-                        <tr>
-
-                          <td> Benefits Pay: {salarySlip2.benefitsPay}</td>
-
-                        </tr>
-
-                        <tr>
-
-                          <td>PF Contribution: {salarySlip2.pfContribution}</td>
-
-                        </tr>
-
-                        <tr>
-
-                          <td> Net Pay: {salarySlip2.salaryAmount}</td>
-
-                        </tr>
-
-                      </table> */}
-
                   <div className="content">
                     <table className="tableContainer">
                       <thead>
                         <tr className="empFields">
-                          <th>Employee ID: {ele.employeeId}</th>
+                          <th>Employee ID: {salarySlip2.employeeId}</th>
                         </tr>
 
                         <tr className="empFields">

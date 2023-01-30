@@ -87,11 +87,11 @@ export default function ManagerLogin() {
   }, []);
 
   return (
-    <>
+    <div className="manager-img">
       <Navigation />
 
       <ThemeProvider theme={theme}>
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" className="login-manager">
           <CssBaseline />
 
           <Box
@@ -175,6 +175,6 @@ export default function ManagerLogin() {
       <footer className="copyrightfooter">
         <p> Copyright &#169; By Axis Batch 9 </p>
       </footer>
-    </>
+    </div>
   );
 }

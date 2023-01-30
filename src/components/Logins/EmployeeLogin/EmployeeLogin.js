@@ -66,10 +66,10 @@ export default function EmployeeLogin() {
   }, []);
 
   return (
-    <>
+    <div className="bg-image">
       <Navigation />
       <ThemeProvider theme={theme}>
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" className="login-emp">
           <CssBaseline />
           <Box
             sx={{
@@ -142,9 +142,10 @@ export default function EmployeeLogin() {
           </Box>
         </Container>
       </ThemeProvider>
+
       <footer className="copyrightfooter">
         <p> Copyright &#169; By Axis Batch 9 </p>
       </footer>
-    </>
+    </div>
   );
 }
