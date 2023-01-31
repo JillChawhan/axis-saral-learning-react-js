@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import ProjectNavigation from "./ProjectNavigation";
+import "./MyProfile.css";
 
 const MyProfile = () => {
   const [myProfile, setMyProfile] = useState([]);

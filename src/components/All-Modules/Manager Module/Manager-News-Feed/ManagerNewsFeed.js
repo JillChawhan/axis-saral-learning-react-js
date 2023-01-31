@@ -10,10 +10,10 @@ import {
   MDBRipple,
 } from "mdb-react-ui-kit";
 import Button from "@mui/material/Button";
-import ProjectNavigation from "../ProjectNavigation";
-import "./EmployeeNewsFeed.css";
+import "./ManagerNewsFeed.css";
+import ManagerProjectNav from "../ManagerProjectNav";
 
-const EmployeeNewsFeed = () => {
+const ManagerNewsFeed = () => {
   const [newsData, setNewsData] = useState([]);
   const [commentInput, setCommentInput] = useState("");
   const [sh, setsh] = useState(false);
@@ -22,7 +22,7 @@ const EmployeeNewsFeed = () => {
     setCommentInput(e.target.value);
   };
 
-  let newsEmpData1 = localStorage.getItem("LoginData");
+  let newsEmpData1 = localStorage.getItem("managerLogin");
   let newsEmpData2 = JSON.parse(newsEmpData1);
   console.log(newsEmpData2);
   const show1 = () => {
@@ -33,7 +33,7 @@ const EmployeeNewsFeed = () => {
     console.log(ele);
     let data = {
       message: commentInput,
-      name: newsEmpData2.employeeName,
+      name: newsEmpData2.managerName,
     };
     axios
       .post(`http://localhost:8088/news/${ele.newsFeedId}/comment/add`, data)
@@ -53,7 +53,7 @@ const EmployeeNewsFeed = () => {
 
   return (
     <>
-      <ProjectNavigation />
+      <ManagerProjectNav />
       <div className="headingNews">
         <h1> News Feed </h1>
       </div>
@@ -163,4 +163,4 @@ const EmployeeNewsFeed = () => {
   );
 };
 
-export default EmployeeNewsFeed;
+export default ManagerNewsFeed;

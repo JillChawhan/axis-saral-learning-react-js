@@ -2,6 +2,7 @@ import React from "react";
 import "./AdminNavigation.css";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../../Logins/AdminLogin/CheckAdminLogin";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 function AdminNavigation() {
   const navigate = useNavigate();
@@ -64,10 +65,32 @@ function AdminNavigation() {
                   <a
                     className="nav-link"
                     onClick={() => {
+                      navigate("/admin-products");
+                    }}
+                  >
+                    PRODUCT
+                  </a>
+                </li>
+
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    onClick={() => {
+                      navigate("/admin-notifications");
+                    }}
+                  >
+                    NOTIFICATIONS
+                  </a>
+                </li>
+
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    onClick={() => {
                       handleClick();
                     }}
                   >
-                    LOGOUT
+                    <LogoutIcon />
                   </a>
                 </li>
               </ul>

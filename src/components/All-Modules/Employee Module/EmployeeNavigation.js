@@ -1,6 +1,6 @@
 import React from "react";
 import "./EmployeeNavigation.css";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SlideBar from "../../HomeNavigation/SlideBar";
 import { logOut } from "../../Logins/EmployeeLogin/CheckLoginAxis";
 import LogoutIcon from "@mui/icons-material/Logout";

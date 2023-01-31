@@ -30,7 +30,6 @@ import { useState, useEffect } from "react";
 
 import axios from "axios";
 
-
 const theme = createTheme();
 
 export default function ManagerLogin() {
@@ -73,7 +72,7 @@ export default function ManagerLogin() {
     } else {
       if (found.emailId == emailId && found.password == password) {
         alert("Login Successfull");
-        navigate("/manager-module");
+        navigate("/manager-news-feed");
         localStorage.setItem("managerLogin", JSON.stringify(found));
       } else {
         alert("Credentials are not found.");

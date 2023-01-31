@@ -5,11 +5,21 @@ import { useState } from "react";
 import axios from "axios";
 import "./AdminProjectDetails.css";
 import AdminNavigation from "./AdminNavigation";
-
+import { useNavigate } from "react-router-dom";
 const AdminProjectDetails = () => {
+  const navigate = useNavigate();
   let projectdata = localStorage.getItem("AdminProject");
   let projectData1 = JSON.parse(projectdata);
   console.log(projectData1);
+  let id = projectData1.projectId;
+  function deleteProject() {
+    console.log(typeof id);
+    axios
+      .delete(`http://localhost:8085/project/delete/${id}`)
+      .then((res) => console.log(res));
+    localStorage.removeItem("AdminProject");
+    navigate("/admin-project");
+  }
   // console.log( JSON.parse(projectdata))
 
   const [employeeData, setEmployeeData] = useState([]);
@@ -213,6 +223,7 @@ const AdminProjectDetails = () => {
               </>
             );
           })}
+          <button onClick={() => deleteProject()}>Delete project</button>
         </Card>
       </div>
     </>

@@ -30,6 +30,9 @@ import PrivateAdmin from "./components/Logins/AdminLogin/PrivateAdmin";
 import AdminNewsFeed from "./components/All-Modules/Admin Module/Admin-News-Feed/AdminNewsFeed";
 import EmployeeNewsFeed from "./components/All-Modules/Employee Module/Employee-News-Feed/EmployeeNewsFeed";
 import Products from "./components/HomeNavigation/Products-Services/Products";
+import AdminNotifications from "./components/All-Modules/Admin Module/Admin-Notifications/AdminNotifications";
+import AdminProduct from "./components/All-Modules/Admin Module/AdminProduct";
+import ManagerNewsFeed from "./components/All-Modules/Manager Module/Manager-News-Feed/ManagerNewsFeed";
 
 const App = () => {
   return (
@@ -105,6 +108,10 @@ const App = () => {
           element={<PrivateRouteManager children={<ManagerMyProfile />} />}
         ></Route>
         <Route
+          path="/manager-news-feed"
+          element={<PrivateRouteManager children={<ManagerNewsFeed />} />}
+        ></Route>
+        <Route
           path="/admin-module"
           element={<PrivateAdmin children={<AdminNavigation />} />}
         ></Route>
@@ -127,6 +134,14 @@ const App = () => {
         <Route
           path="/admin-news-feed"
           element={<PrivateAdmin children={<AdminNewsFeed />} />}
+        ></Route>
+        <Route
+          path="/admin-notifications"
+          element={<PrivateAdmin children={<AdminNotifications />} />}
+        ></Route>
+        <Route
+          path="/admin-products"
+          element={<PrivateAdmin children={<AdminProduct />} />}
         ></Route>
       </Routes>
     </>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../../Logins/ManagerLogin/CheckManagerLogin";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const ManagerProjectNav = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const ManagerProjectNav = () => {
             <a
               className="navbar-brand"
               onClick={() => {
-                navigate("/manager-module");
+                navigate("/manager-news-feed");
               }}
             >
               Axis SARAL Learning
@@ -48,6 +49,18 @@ const ManagerProjectNav = () => {
                     EMPLOYEES
                   </a>
                 </li>
+
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    onClick={() => {
+                      navigate("/manager-module");
+                    }}
+                  >
+                    DOCUMENTS
+                  </a>
+                </li>
+
                 <li className="nav-item">
                   <a
                     className="nav-link"
@@ -65,7 +78,7 @@ const ManagerProjectNav = () => {
                       handleClick();
                     }}
                   >
-                    LOGOUT
+                    <LogoutIcon />
                   </a>
                 </li>
               </ul>
