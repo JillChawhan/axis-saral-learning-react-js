@@ -44,19 +44,26 @@ export default function EmployeeLogin() {
 
   let submitButton = (event) => {
     event.preventDefault();
-    const found = backdata.find((element) => element.emailId == emailId);
-    //console.log(found);
-    if (found == undefined) {
-      alert("Invalid Credentials");
-    } else {
-      if (found.emailId == emailId && found.password == password) {
+
+    const loginBdoy = {
+      username: emailId,
+      password: password,
+    };
+
+    axios
+      .post("http://localhost:8090/employee-security-login", loginBdoy)
+      .then((response) => {
+        sessionStorage.setItem("employeeLogin", response.data);
         alert("Login Successfull");
         navigate("/employee-news-feed");
-        localStorage.setItem("LoginData", JSON.stringify(found));
-      } else {
-        alert("Credentials are not found.");
-      }
-    }
+      })
+      .catch((error) => {
+        alert("Inavlid credentials.");
+      });
+
+    const found = backdata.find((element) => element.emailId == emailId);
+    // navigate("/employee-news-feed");
+    localStorage.setItem("LoginData", JSON.stringify(found));
   };
 
   useEffect(() => {
