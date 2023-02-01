@@ -6,6 +6,8 @@ import axios from "axios";
 import "./AdminProjectDetails.css";
 import AdminNavigation from "./AdminNavigation";
 import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
+
 const AdminProjectDetails = () => {
   const navigate = useNavigate();
   let projectdata = localStorage.getItem("AdminProject");
@@ -13,7 +15,11 @@ const AdminProjectDetails = () => {
   console.log(projectData1);
   let id = projectData1.projectId;
   function deleteProject() {
-    console.log(typeof id);
+    // console.log(typeof id);
+    // employeeData.map((ele12) => {
+    //   element = ele;
+    //   console.log(element);
+    // });
     axios
       .delete(`http://localhost:8085/project/delete/${id}`)
       .then((res) => console.log(res));
@@ -112,6 +118,7 @@ const AdminProjectDetails = () => {
               </Nav.Item>
             </Nav>
           </Card.Header>
+
           <Card.Body
             style={{ display: projectDetailsChange ? "block" : "none" }}
           >
@@ -223,8 +230,18 @@ const AdminProjectDetails = () => {
               </>
             );
           })}
-          <button onClick={() => deleteProject()}>Delete project</button>
         </Card>
+        <Button
+          type="submit"
+          halfWidth
+          variant="contained"
+          sx={{ mt: 3, mb: 2 }}
+          id="btnlogin"
+          style={{ backgroundColor: "#AE275F", marginLeft: "43%" }}
+          onClick={() => deleteProject()}
+        >
+          DELETE PROJECT
+        </Button>
       </div>
     </>
   );

@@ -21,8 +21,7 @@ import AdminProject from "./components/All-Modules/Admin Module/AdminProject";
 import AdminProjectDetails from "./components/All-Modules/Admin Module/AdminProjectDetails";
 import AdminEmployees from "./components/All-Modules/Admin Module/AdminEmployees";
 import AdminManagers from "./components/All-Modules/Admin Module/AdminManagers";
-import MyDocuments from "./components/All-Modules/Employee Module/MyDocuments";
-import SalarySlip from "./components/All-Modules/Employee Module/SalarySlip";
+
 import EmployeeSearch from "./components/All-Modules/Employee Module/Employee-Search";
 import PrivateRouteAxis from "./components/Logins/EmployeeLogin/PrivateRouteAxis";
 import PrivateRouteManager from "./components/Logins/ManagerLogin/PrivateRouteManager";
@@ -33,6 +32,11 @@ import Products from "./components/HomeNavigation/Products-Services/Products";
 import AdminNotifications from "./components/All-Modules/Admin Module/Admin-Notifications/AdminNotifications";
 import AdminProduct from "./components/All-Modules/Admin Module/AdminProduct";
 import ManagerNewsFeed from "./components/All-Modules/Manager Module/Manager-News-Feed/ManagerNewsFeed";
+import MyDocuments from "./components/All-Modules/Employee Module/Employee-Documents/MyDocuments";
+import SalarySlip from "./components/All-Modules/Employee Module/Employee-Documents/SalarySlip";
+import AppointmentLetter from "./components/All-Modules/Employee Module/Employee-Documents/AppointmentLetter";
+import JoiningLetter from "./components/All-Modules/Employee Module/Employee-Documents/JoiningLetter";
+import IncrementLetter from "./components/All-Modules/Employee Module/Employee-Documents/IncrementLetter";
 
 const App = () => {
   return (
@@ -66,6 +70,18 @@ const App = () => {
         <Route
           path="/employee-salaryslip"
           element={<PrivateRouteAxis children={<SalarySlip />} />}
+        ></Route>
+        <Route
+          path="/employee-appointment-letter"
+          element={<PrivateRouteAxis children={<AppointmentLetter />} />}
+        ></Route>
+        <Route
+          path="/employee-joining-letter"
+          element={<PrivateRouteAxis children={<JoiningLetter />} />}
+        ></Route>
+        <Route
+          path="/employee-increment-letter"
+          element={<PrivateRouteAxis children={<IncrementLetter />} />}
         ></Route>
         <Route
           path="/employee-search"

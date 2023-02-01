@@ -1,15 +1,9 @@
 import axios from "axios";
-
 import React, { useEffect, useState } from "react";
-
 import Card from "react-bootstrap/Card";
-
 import Button from "@mui/material/Button";
-
 import ArrowBackIosNewTwoToneIcon from "@mui/icons-material/ArrowBackIosNewTwoTone";
-
 import { useNavigate } from "react-router-dom";
-
 import "./SalarySlip.css";
 
 const SalarySlip = () => {
@@ -23,7 +17,7 @@ const SalarySlip = () => {
 
   let salarySlip2 = JSON.parse(salarySlip1);
 
-  console.log(salarySlip2);
+  // console.log(salarySlip2);
 
   useEffect(() => {
     axios.get("http://localhost:8085/employees").then((response) => {
@@ -133,7 +127,9 @@ const SalarySlip = () => {
                     variant="contained"
                     sx={{ mt: 1, mb: 1 }}
                     id="btnlogin"
-                    style={{ backgroundColor: "#AE275F" }}
+                    style={{
+                      backgroundColor: "#AE275F",
+                    }}
                     onClick={salarydownload}
                   >
                     DOWNLOAD
