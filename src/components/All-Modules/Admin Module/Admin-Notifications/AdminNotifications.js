@@ -1,60 +1,134 @@
-import React, { useRef } from "react";
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBTextArea,
-} from "mdb-react-ui-kit";
+import * as React from "react";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import AdminNavigation from "../AdminNavigation";
 import "./AdminNotification.css";
 import Button from "@mui/material/Button";
-import emailjs from "@emailjs/browser";
 
-function AdminNotification() {
-  const form = useRef();
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCol,
+  MDBInput,
+  MDBRow,
+  MDBTypography,
+} from "mdb-react-ui-kit";
 
-  const sendEmail = (e) => {
+export default function AdminNotification() {
+  const [empData, setEmpData] = useState([]);
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const subjectOC = (event) => {
+    setSubject(event.target.value);
+  };
+
+  const messageOc = (event) => {
+    setMessage(event.target.value);
+  };
+
+  const sendMail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_5npsadc",
-        "template_l0n0t43",
-        form.current,
-        "l0lAaXXmiQKmO4qIn"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-    e.target.reset();
+    empData.map((ele) => {
+      // console.log(ele.emailId);
+      let data = {
+        recipient: ele.emailId,
+        msgBody: message,
+        subject: subject,
+      };
+
+      axios.post("http://localhost:8091/sendMail", data).then((response) => {
+        console.log(response);
+      });
+    });
+
+    alert("Mail Sent To All Employees.", window.location.reload());
   };
+
+  useEffect(() => {
+    axios.get("http://localhost:8085/employees").then((response) => {
+      setEmpData(response.data);
+    });
+  }, []);
 
   return (
     <>
       <AdminNavigation />
 
-      <form ref={form} onSubmit={sendEmail}>
-        <label for="fname">Email</label>
-        <input type="email" id="fname" name="user_email" placeholder="email" />
+      <div
+        className="mx-auto gradient-custom mt-5"
+        style={{
+          maxWidth: "800px",
+          height: "440px",
+          border: "solid black 1px",
+        }}
+      >
+        <MDBRow className="pt-3 mx-3">
+          <MDBCol md="3">
+            <div
+              className="text-center"
+              style={{ marginTop: "50px", marginLeft: "10px" }}
+            >
+              <MDBTypography tag="h3" style={{ color: "#495057" }}>
+                Notifications will be sent to all employees
+              </MDBTypography>
+            </div>
+          </MDBCol>
+          <MDBCol md="9" className="justify-content-center">
+            <MDBCard className="card-custom pb-4">
+              <MDBCardBody className="mt-0 mx-5">
+                <div className="text-center mb-3 pb-2 mt-3">
+                  <MDBTypography tag="h4" style={{ color: "#495057" }}>
+                    Send Notification
+                  </MDBTypography>
+                </div>
 
-        <label for="fname">Subject</label>
-        <input type="text" id="fname" name="subject" placeholder="Subject" />
+                <form className="mb-0">
+                  <MDBRow className="mb-4">
+                    <MDBCol>
+                      <label
+                        for="exampleFormControlTextarea2"
+                        style={{ color: "#495057" }}
+                      >
+                        Subject
+                      </label>
+                      <MDBInput type="text" onChange={subjectOC} />
+                    </MDBCol>
+                  </MDBRow>
 
-        <label for="lname">message</label>
-        <input type="text" id="lname" name="message" placeholder="message" />
+                  <div class="form-group">
+                    <label
+                      for="exampleFormControlTextarea2"
+                      style={{ color: "#495057" }}
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      class="form-control rounded-0"
+                      id="exampleFormControlTextarea2"
+                      rows="3"
+                      onChange={messageOc}
+                    ></textarea>
+                  </div>
 
-        <input type="submit" value="Send" />
-      </form>
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                    id="btnlogin"
+                    style={{ backgroundColor: "#AE275F" }}
+                    onClick={sendMail}
+                  >
+                    Send
+                  </Button>
+                </form>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+      </div>
     </>
   );
 }
-
-export default AdminNotification;

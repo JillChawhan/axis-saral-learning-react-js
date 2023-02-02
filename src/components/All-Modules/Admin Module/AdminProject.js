@@ -1,5 +1,4 @@
 import Card from "react-bootstrap/Card";
-// import ProjectNavigation from "./ProjectNavigation";
 import "./AdminProject.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -26,6 +25,14 @@ function AdminProject() {
   return (
     <>
       <AdminNavigation />
+      <button
+        className="adminproadd"
+        onClick={() => {
+          navigate("/admin-project-add");
+        }}
+      >
+        Manage Projects
+      </button>
       <div className="divflex">
         {projectData.map((ele) => {
           return (

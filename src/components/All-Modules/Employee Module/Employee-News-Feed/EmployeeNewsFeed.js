@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
+  MDBBtn,
   MDBCard,
   MDBCardBody,
-  MDBCardImage,
+  MDBContainer,
+  MDBIcon,
   MDBRipple,
+  MDBTextArea,
 } from "mdb-react-ui-kit";
 import Button from "@mui/material/Button";
 import ProjectNavigation from "../ProjectNavigation";
@@ -31,18 +31,24 @@ const EmployeeNewsFeed = () => {
   };
   const addComment = (ele) => {
     console.log(ele);
-    let data = {
-      message: commentInput,
-      name: newsEmpData2.employeeName,
-    };
-    axios
-      .post(`http://localhost:8088/news/${ele.newsFeedId}/comment/add`, data)
-      .then((response) => response);
+    if (commentInput == "") {
+      alert("Please enter comment");
+    } else {
+      let data = {
+        message: commentInput,
+        name: newsEmpData2.employeeName,
+      };
+      axios
+        .post(`http://localhost:8088/news/${ele.newsFeedId}/comment/add`, data)
+        .then((response) => response);
 
-    document.getElementById("form1").value = "";
-    axios.get("http://localhost:8088/news").then((response) => {
-      setNewsData(response.data);
-    });
+      document.getElementById("form1").value = "";
+      axios.get("http://localhost:8088/news").then((response) => {
+        setNewsData(response.data);
+      });
+
+      alert("Comment is Added Successfully.", window.location.reload());
+    }
   };
 
   useEffect(() => {
@@ -57,70 +63,77 @@ const EmployeeNewsFeed = () => {
       <div className="headingNews">
         <h1> News Feed </h1>
       </div>
-      <div className="adminnews">
+      <div className="employeefeed">
         {newsData.map((ele) => {
           return (
             <>
-              <MDBContainer fluid className="my-5 employeeFeed">
-                <MDBRow className="justify-content-center">
-                  <MDBCol md="8" lg="6" xl="4">
-                    <MDBCard style={{ borderRadius: "15px" }}>
-                      <MDBRipple
-                        rippleColor="light"
-                        rippleTag="div"
-                        className="bg-image rounded hover-overlay"
-                      >
-                        <MDBCardImage
-                          src={ele.newsImageUrl}
-                          fluid
-                          className="w-100"
-                          style={{
-                            borderTopLeftRadius: "15px",
-                            borderTopRightRadius: "15px",
-                          }}
-                        />
-                      </MDBRipple>
-                      <hr class="my-0" />
-                      <MDBCardBody className="pb-0">
-                        <div className="d-flex justify-content-between">
-                          <p>
-                            <p className="text-dark">DESCRIPTION</p>
-                          </p>
-                        </div>
-                        <p className="text-dark">{ele.newsDescription}</p>
-                      </MDBCardBody>
-                      <hr class="my-0" />
-                      <MDBCardBody className="pb-0">
-                        <div class="md-form">
-                          <input
-                            type="text"
-                            id="form1"
-                            class="form-control"
-                            placeholder="Add Comment Here..."
-                            style={{ border: "solid 1px" }}
-                            onChange={setCommentData}
+              <div>
+                <MDBContainer className="py-5">
+                  <MDBCard style={{ maxWidth: "42rem" }}>
+                    <MDBCardBody>
+                      <div className="d-flex mb-3">
+                        <a href="#!">
+                          <img
+                            src="https://mir-s3-cdn-cf.behance.net/projects/404/5979167.546a2078ea298.jpg"
+                            className="border rounded-circle me-2"
+                            alt="Avatar"
+                            style={{ height: "40px" }}
                           />
+                        </a>
+                        <div>
+                          <a className="text-dark mb-0">
+                            <strong>Axis Saral</strong>
+                          </a>
                         </div>
-                      </MDBCardBody>
-                      <MDBCardBody className="pb-0">
-                        <Button
-                          type="submit"
-                          fullWidth
-                          variant="contained"
-                          sx={{ mt: 3, mb: 2 }}
-                          id="btnlogin"
-                          style={{ backgroundColor: "#AE275F" }}
-                          onClick={() => {
-                            addComment(ele);
-                            alert(
-                              "Comment is Added Successfully.",
-                              window.location.reload()
-                            );
+                      </div>
+                      <div>
+                        <p>{ele.newsDescription}</p>
+                      </div>
+                    </MDBCardBody>
+                    <MDBRipple
+                      className="bg-image hover-overlay ripple rounded-0"
+                      rippleTag="div"
+                      rippleColor="light"
+                    >
+                      <img src={ele.newsImageUrl} className="w-100" />
+                      <a>
+                        <div
+                          className="mask"
+                          style={{
+                            backgroundColor: "rgba(251, 251, 251, 0.2)",
                           }}
-                        >
-                          Add Comment
-                        </Button>
-                      </MDBCardBody>
+                        ></div>
+                      </a>
+                    </MDBRipple>
+                    <hr class="my-0" />
+                    <MDBCardBody className="pb-0">
+                      <div class="md-form">
+                        <input
+                          type="text"
+                          id="form1"
+                          class="form-control"
+                          placeholder="Add Comment Here..."
+                          style={{ border: "solid 1px" }}
+                          onChange={setCommentData}
+                        />
+                      </div>
+                    </MDBCardBody>
+                    <MDBCardBody className="pb-0">
+                      <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        sx={{ mt: 3, mb: 2 }}
+                        id="btnlogin"
+                        style={{ backgroundColor: "#AE275F" }}
+                        onClick={() => {
+                          addComment(ele);
+                        }}
+                      >
+                        Add Comment
+                      </Button>
+                    </MDBCardBody>
+                    <MDBCardBody>
                       <p onClick={show1}>{shows}</p>
                       <div style={{ display: sh ? "block" : "none" }}>
                         {ele.comments?.map((ele1) => {
@@ -151,10 +164,10 @@ const EmployeeNewsFeed = () => {
                           );
                         })}
                       </div>
-                    </MDBCard>
-                  </MDBCol>
-                </MDBRow>
-              </MDBContainer>
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBContainer>
+              </div>
             </>
           );
         })}

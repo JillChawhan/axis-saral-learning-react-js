@@ -45,15 +45,15 @@ export default function EmployeeLogin() {
   let submitButton = (event) => {
     event.preventDefault();
 
-    const loginBdoy = {
+    const loginBody = {
       username: emailId,
       password: password,
     };
 
     axios
-      .post("http://localhost:8090/employee-security-login", loginBdoy)
+      .post("http://localhost:8090/employee-security-login", loginBody)
       .then((response) => {
-        sessionStorage.setItem("employeeLogin", response.data);
+        sessionStorage.setItem("employeeLogin", response.data.token);
         alert("Login Successfull");
         navigate("/employee-news-feed");
       })

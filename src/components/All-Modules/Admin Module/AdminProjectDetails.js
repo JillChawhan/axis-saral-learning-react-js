@@ -120,6 +120,7 @@ const AdminProjectDetails = () => {
           </Card.Header>
 
           <Card.Body
+            className="projectdetailnav"
             style={{ display: projectDetailsChange ? "block" : "none" }}
           >
             <Card.Title>Project Name: </Card.Title>
@@ -135,6 +136,7 @@ const AdminProjectDetails = () => {
             return (
               <>
                 <Card.Body
+                  className="projectdetailnav"
                   style={{ display: managerDetailsChange ? "block" : "none" }}
                 >
                   <Card.Title>Manager Name: </Card.Title>
@@ -160,6 +162,7 @@ const AdminProjectDetails = () => {
               return (
                 <>
                   <Card.Body
+                    className="projectdetailnav"
                     style={{
                       display: employeeDetailsChange ? "block" : "none",
                     }}
@@ -189,6 +192,7 @@ const AdminProjectDetails = () => {
             return (
               <>
                 <Card.Body
+                  className="projectdetailnav"
                   style={{ display: supportTeamDetails ? "block" : "none" }}
                 >
                   <Card.Title>Employee Name: </Card.Title>
@@ -211,6 +215,7 @@ const AdminProjectDetails = () => {
             return (
               <>
                 <Card.Body
+                  className="projectdetailnav"
                   style={{
                     display: stakeHolderDetailsChange ? "block" : "none",
                   }}
@@ -231,17 +236,6 @@ const AdminProjectDetails = () => {
             );
           })}
         </Card>
-        <Button
-          type="submit"
-          halfWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-          id="btnlogin"
-          style={{ backgroundColor: "#AE275F", marginLeft: "43%" }}
-          onClick={() => deleteProject()}
-        >
-          DELETE PROJECT
-        </Button>
       </div>
     </>
   );

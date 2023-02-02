@@ -10,13 +10,13 @@ const ManagerProjectDetails = () => {
   let managerData2 = JSON.parse(managerData1);
   console.log(managerData2);
 
-  const [employeeData, setEmployeeData] = useState([])
-  // Employees details 
+  const [employeeData, setEmployeeData] = useState([]);
+  // Employees details
   useEffect(() => {
     axios.get("http://localhost:8085/employees").then((response) => {
-        setEmployeeData(response.data)
-    })
-  }, [])
+      setEmployeeData(response.data);
+    });
+  }, []);
 
   //
   const [projectDetailsChange, setprojectDetailsChange] = useState(true);
@@ -134,99 +134,92 @@ const ManagerProjectDetails = () => {
                 </Card.Body>
               </>
             );
-          })
-        }
+          })}
 
+          {employeeData.map((ele) => {
+            if (ele.projectId == managerData2.projectId) {
+              return (
+                <>
+                  <Card.Body
+                    style={{
+                      display: employeeDetailsChange ? "block" : "none",
+                    }}
+                  >
+                    <Card.Title>Employee Name: </Card.Title>
+                    <Card.Text> {ele.employeeName} </Card.Text>
 
-        {
-          employeeData.map((ele) => {
-            if(ele.projectId == managerData2.projectId){
-            return(
-              <>
-              <Card.Body
-              style={{ display: employeeDetailsChange ? "block" : "none" }}
-            >
-              <Card.Title>Employee Name: </Card.Title>
-              <Card.Text> {ele.employeeName} </Card.Text>
-              
-              <Card.Title>Employee Id: </Card.Title>
-              <Card.Text> {ele.employeeId} </Card.Text>
+                    <Card.Title>Employee Id: </Card.Title>
+                    <Card.Text> {ele.employeeId} </Card.Text>
 
-              <Card.Title>Employee Designation: </Card.Title>
-              <Card.Text> {ele.designation} </Card.Text>
+                    <Card.Title>Employee Designation: </Card.Title>
+                    <Card.Text> {ele.designation} </Card.Text>
 
-              <Card.Title>Employee EmailId: </Card.Title>
-              <Card.Text> {ele.emailId} </Card.Text>
+                    <Card.Title>Employee EmailId: </Card.Title>
+                    <Card.Text> {ele.emailId} </Card.Text>
 
-              <Card.Title>Employee MobileNo: </Card.Title>
-              <Card.Text> {ele.mobileNo} </Card.Text>
-
-
-            </Card.Body>
-              </>
-            )
+                    <Card.Title>Employee MobileNo: </Card.Title>
+                    <Card.Text> {ele.mobileNo} </Card.Text>
+                  </Card.Body>
+                </>
+              );
             }
-          })
-        }
+          })}
 
-        {
-          managerData2.supportTeamList.map((ele) => {
-            return(
+          {managerData2.supportTeamList.map((ele) => {
+            return (
               <>
-              <Card.Body
-              style={{ display: supportTeamDetails ? "block" : "none" }}
-            >
-              <Card.Title>Employee Name: </Card.Title>
-              <Card.Text> {ele.employeeName} </Card.Text>
-              
-              <Card.Title>Employee Id: </Card.Title>
-              <Card.Text> {ele.employeeId} </Card.Text>
+                <Card.Body
+                  style={{ display: supportTeamDetails ? "block" : "none" }}
+                >
+                  <Card.Title>Employee Name: </Card.Title>
+                  <Card.Text> {ele.employeeName} </Card.Text>
 
-              <Card.Title>Employee Designation: </Card.Title>
-              <Card.Text> {ele.designation} </Card.Text>
+                  <Card.Title>Employee Id: </Card.Title>
+                  <Card.Text> {ele.employeeId} </Card.Text>
 
-              <Card.Title>Employee EmailId: </Card.Title>
-              <Card.Text> {ele.emailId} </Card.Text>
+                  <Card.Title>Employee Designation: </Card.Title>
+                  <Card.Text> {ele.designation} </Card.Text>
 
-              <Card.Title>Employee MobileNo: </Card.Title>
-              <Card.Text> {ele.mobileNo} </Card.Text>
+                  <Card.Title>Employee EmailId: </Card.Title>
+                  <Card.Text> {ele.emailId} </Card.Text>
 
-              <hr />
-            </Card.Body>
+                  <Card.Title>Employee MobileNo: </Card.Title>
+                  <Card.Text> {ele.mobileNo} </Card.Text>
+
+                  <hr />
+                </Card.Body>
               </>
-            )
-          })
-        }
+            );
+          })}
 
-        {
-          managerData2.stakeholder.map((ele) => {
-            return(
+          {managerData2.stakeholder.map((ele) => {
+            return (
               <>
-              <Card.Body
-              style={{ display: stakeHolderDetailsChange ? "block" : "none" }}
-            >
-              <Card.Title>Stakeholder Name: </Card.Title>
-              <Card.Text> {ele.stakeholderName} </Card.Text>
-              
-              <Card.Title>Stakeholder Id: </Card.Title>
-              <Card.Text> {ele.stakeholderId} </Card.Text>
+                <Card.Body
+                  style={{
+                    display: stakeHolderDetailsChange ? "block" : "none",
+                  }}
+                >
+                  <Card.Title>Stakeholder Name: </Card.Title>
+                  <Card.Text> {ele.stakeholderName} </Card.Text>
 
-              <Card.Title>Stakeholder Position: </Card.Title>
-              <Card.Text> {ele.stakeholderPosition} </Card.Text>
+                  <Card.Title>Stakeholder Id: </Card.Title>
+                  <Card.Text> {ele.stakeholderId} </Card.Text>
 
-              <Card.Title>Stakeholder EmailId: </Card.Title>
-              <Card.Text> {ele.stakeholderEmailId} </Card.Text>
+                  <Card.Title>Stakeholder Position: </Card.Title>
+                  <Card.Text> {ele.stakeholderPosition} </Card.Text>
 
-              <Card.Title>Stakeholder MobileNo: </Card.Title>
-              <Card.Text> {ele.stakeholderMobileNo} </Card.Text>
+                  <Card.Title>Stakeholder EmailId: </Card.Title>
+                  <Card.Text> {ele.stakeholderEmailId} </Card.Text>
 
-              <hr />
-            </Card.Body>
+                  <Card.Title>Stakeholder MobileNo: </Card.Title>
+                  <Card.Text> {ele.stakeholderMobileNo} </Card.Text>
+
+                  <hr />
+                </Card.Body>
               </>
-            )
-          })
-        }
-
+            );
+          })}
         </Card>
       </div>
     </>

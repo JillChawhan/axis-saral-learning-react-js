@@ -3,6 +3,18 @@ import ManagerProjectNav from "./ManagerProjectNav";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import "./ManagerEmployees.css";
+import Button from "@mui/material/Button";
+import {
+  MDBCol,
+  MDBContainer,
+  MDBRow,
+  MDBCard,
+  MDBCardText,
+  MDBCardBody,
+  MDBCardImage,
+  MDBTypography,
+  MDBIcon,
+} from "mdb-react-ui-kit";
 
 const ManagerEmployees = () => {
   const [employeeData, setEmployeeData] = useState([]);
@@ -59,31 +71,99 @@ const ManagerEmployees = () => {
       {employeeData.map((ele) => {
         return (
           <>
-            <div className="manager-card">
-              <Card>
-                <Card.Header className="managercard">
-                  {" "}
-                  Employee Details{" "}
-                </Card.Header>
-                <Card.Body>
-                  <Card.Title>Employee Name: </Card.Title>
-                  <Card.Text>{ele.employeeName} </Card.Text>
+            <section className="vh-100" style={{ backgroundColor: "#f4f5f7" }}>
+              <MDBContainer className="py-4 h-500">
+                <MDBRow className="justify-content-center align-items-center h-100">
+                  <MDBCol lg="7" className="mb-1 mb-lg-0">
+                    <MDBCard className="mb-1" style={{ borderRadius: ".5rem" }}>
+                      <MDBRow className="g-0">
+                        <MDBCol
+                          md="4"
+                          className="gradient-custom text-center text-white"
+                          style={{
+                            borderTopLeftRadius: ".5rem",
+                            borderBottomLeftRadius: ".5rem",
+                          }}
+                        >
+                          <MDBCardImage
+                            src={ele.profile}
+                            alt="Avatar"
+                            className="my-5"
+                            style={{
+                              width: "150px",
+                              height: "150px",
+                              borderRadius: "5px",
+                            }}
+                            fluid
+                          />
+                          <MDBTypography tag="h5" style={{ color: "black" }}>
+                            {ele.employeeName}
+                          </MDBTypography>
+                          <MDBCardText style={{ color: "black" }}>
+                            {ele.designation}
+                          </MDBCardText>
+                          <MDBIcon far icon="edit mb-5" />
+                        </MDBCol>
+                        <MDBCol md="5">
+                          <MDBCardBody className="p-4">
+                            <MDBTypography tag="h6">
+                              Employee Details
+                            </MDBTypography>
+                            <hr className="mt-0 mb-4" />
+                            <MDBRow className="pt-1">
+                              <MDBCol size="6" className="mb-3">
+                                <MDBTypography tag="h6">
+                                  Employee Id
+                                </MDBTypography>
+                                <MDBCardText className="text-muted"></MDBCardText>
+                                {ele.employeeId}
+                              </MDBCol>
+                              <MDBCol size="6" className="mb-3">
+                                <MDBTypography tag="h6"></MDBTypography>
+                                <MDBCardText className="text-muted"></MDBCardText>
+                              </MDBCol>
+                            </MDBRow>
 
-                  <Card.Title>Employee ID: </Card.Title>
-                  <Card.Text>{ele.employeeId} </Card.Text>
+                            <MDBTypography tag="h6">
+                              Contact Details
+                            </MDBTypography>
+                            <hr className="mt-0 mb-4" />
+                            <MDBRow className="pt-1">
+                              <MDBCol size="6" className="mb-3">
+                                <MDBTypography tag="h6">Email</MDBTypography>
+                                <MDBCardText className="text-muted">
+                                  {ele.emailId}
+                                </MDBCardText>
+                              </MDBCol>
+                              <MDBCol size="6" className="mb-3">
+                                <MDBTypography tag="h6">
+                                  Mobile Number
+                                </MDBTypography>
+                                <MDBCardText className="text-muted">
+                                  {ele.mobileNo}
+                                </MDBCardText>
+                              </MDBCol>
+                            </MDBRow>
 
-                  <Card.Title>Employee Designation: </Card.Title>
-                  <Card.Text>{ele.designation} </Card.Text>
-
-                  <Card.Title>Employee Email: </Card.Title>
-                  <Card.Text>{ele.emailId} </Card.Text>
-
-                  <Card.Title>Employee MobileNo: </Card.Title>
-                  <Card.Text>{ele.mobileNo} </Card.Text>
-                  <hr />
-                </Card.Body>
-              </Card>
-            </div>
+                            <div className="d-flex justify-content-start">
+                              <a href="#!">
+                                <MDBIcon fab icon="facebook me-3" size="lg" />
+                              </a>
+                              <a href="#!">
+                                <MDBIcon fab icon="twitter me-3" size="lg" />
+                              </a>
+                              <a href="#!">
+                                <MDBIcon fab icon="instagram me-3" size="lg" />
+                              </a>
+                            </div>
+                          </MDBCardBody>
+                        </MDBCol>
+                      </MDBRow>
+                    </MDBCard>
+                  </MDBCol>
+                </MDBRow>
+              </MDBContainer>
+            </section>
           </>
         );
       })}

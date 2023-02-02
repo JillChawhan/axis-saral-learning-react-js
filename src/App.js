@@ -37,6 +37,7 @@ import SalarySlip from "./components/All-Modules/Employee Module/Employee-Docume
 import AppointmentLetter from "./components/All-Modules/Employee Module/Employee-Documents/AppointmentLetter";
 import JoiningLetter from "./components/All-Modules/Employee Module/Employee-Documents/JoiningLetter";
 import IncrementLetter from "./components/All-Modules/Employee Module/Employee-Documents/IncrementLetter";
+import AdminAddProjects from "./components/All-Modules/Admin Module/Admin-Project/AdminAddProjects";
 
 const App = () => {
   return (
@@ -158,6 +159,10 @@ const App = () => {
         <Route
           path="/admin-products"
           element={<PrivateAdmin children={<AdminProduct />} />}
+        ></Route>
+        <Route
+          path="/admin-project-add"
+          element={<PrivateAdmin children={<AdminAddProjects />} />}
         ></Route>
       </Routes>
     </>
