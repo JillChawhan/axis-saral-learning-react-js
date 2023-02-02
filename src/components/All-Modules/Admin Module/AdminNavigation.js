@@ -34,6 +34,17 @@ function AdminNavigation() {
                     className="nav-link"
                     aria-current="page"
                     onClick={() => {
+                      navigate("/admin-document-add");
+                    }}
+                  >
+                    DOCUMENTS
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    aria-current="page"
+                    onClick={() => {
                       navigate("/admin-project");
                     }}
                   >

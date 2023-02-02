@@ -38,6 +38,7 @@ import AppointmentLetter from "./components/All-Modules/Employee Module/Employee
 import JoiningLetter from "./components/All-Modules/Employee Module/Employee-Documents/JoiningLetter";
 import IncrementLetter from "./components/All-Modules/Employee Module/Employee-Documents/IncrementLetter";
 import AdminAddProjects from "./components/All-Modules/Admin Module/Admin-Project/AdminAddProjects";
+import AdminUpload from "./components/All-Modules/Admin Module/Admin-Documents/AdminUpload";
 
 const App = () => {
   return (
@@ -163,6 +164,10 @@ const App = () => {
         <Route
           path="/admin-project-add"
           element={<PrivateAdmin children={<AdminAddProjects />} />}
+        ></Route>
+        <Route
+          path="/admin-document-add"
+          element={<PrivateAdmin children={<AdminUpload />} />}
         ></Route>
       </Routes>
     </>

@@ -34,7 +34,7 @@ const Manager = () => {
       <ProjectNavigation />
       {manager.map((ele) => {
         if (ele.emailId == empData.emailId) {
-          console.log("Same Employee");
+          // console.log("Same Employee");
           return (
             <>
               <section
