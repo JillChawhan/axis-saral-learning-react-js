@@ -28,6 +28,14 @@ const EmployeeSearch = () => {
       axios.get("http://localhost:8085/employees").then((response) => {
         setEmployeeData(response.data);
       });
+    } else {
+      let newEmployeeData = employeeData.filter((e) => {
+        return (
+          e.employeeName.substring(0, employeeSearch.length).toLowerCase() ==
+          employeeSearch.toLowerCase()
+        );
+      });
+      setEmployeeData(newEmployeeData);
     }
   };
 

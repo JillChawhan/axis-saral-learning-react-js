@@ -153,7 +153,7 @@ const AdminProduct = () => {
   return (
     <>
       <AdminNavigation />
-      <div>
+      <div className="adminProduct">
         <Card>
           <Card.Header>
             <Nav variant="tabs">

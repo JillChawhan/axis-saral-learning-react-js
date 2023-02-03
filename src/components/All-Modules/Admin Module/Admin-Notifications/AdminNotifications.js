@@ -57,14 +57,17 @@ export default function AdminNotification() {
       <AdminNavigation />
 
       <div
-        className="mx-auto gradient-custom mt-5"
+        className="mx-auto gradient-custom mt-4 notificationButton"
         style={{
           maxWidth: "800px",
-          height: "440px",
-          border: "solid black 1px",
+          height: "450px",
+          border: "solid gray 1px",
+          paddingBottom: "10%",
+          
         }}
+
       >
-        <MDBRow className="pt-3 mx-3">
+        <MDBRow className="pt-3 mx-3 innerCrad">
           <MDBCol md="3">
             <div
               className="text-center"

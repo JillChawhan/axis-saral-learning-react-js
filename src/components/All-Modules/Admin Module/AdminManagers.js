@@ -27,6 +27,14 @@ const AdminManagers = () => {
       axios.get("http://localhost:8085/managers").then((response) => {
         setEmployeeData(response.data);
       });
+    } else {
+      let newEmployeeData = employeeData.filter((e) => {
+        return (
+          e.managerName.substring(0, employeeSearch.length).toLowerCase() ==
+          employeeSearch.toLowerCase()
+        );
+      });
+      setEmployeeData(newEmployeeData);
     }
   };
 

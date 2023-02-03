@@ -1,15 +1,48 @@
-.opp-card {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 10px 100px 5px 100px;
-  /* height: 100vh; */
-  border: solid 1px;
+.card-container {
+  width: 500px;
+  height: 500px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.oppcard {
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  padding: 10px;
+  text-align: left;
+  background-color: #ddd;
+}
+
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+.bold-text {
   font-weight: bold;
-  font-size: 1.5rem;
+}
+
+.light-text {
+  color: #999;
+}
+
+.opportunityEmp {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.card-container {
+  height: 400px;
+}
+
+.oppHead {
+  text-align: center;
+  padding: 5px;
   text-transform: uppercase;
-  padding-top: 20px;
 }

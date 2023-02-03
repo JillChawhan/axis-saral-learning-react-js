@@ -12,8 +12,11 @@ import {
 } from "mdb-react-ui-kit";
 import Button from "@mui/material/Button";
 import "./AdminNewsFeed.css";
+import { useNavigate } from "react-router-dom";
+import { margin } from "@mui/system";
 
 const AdminNewsFeed = () => {
+  const navigate = useNavigate();
   const [newsData, setNewsData] = useState([]);
   const [commentInput, setCommentInput] = useState("");
   const [sh, setsh] = useState(false);
@@ -71,6 +74,22 @@ const AdminNewsFeed = () => {
   return (
     <>
       <AdminNavigation />
+      <button
+        className="managebtn"
+        onClick={() => {
+          navigate("/admin-news-add");
+        }}
+        style={{
+          backgroundColor: "#ae275f",
+          borderRadius: "2px",
+          padding: "10px",
+          color: "white",
+          border: "solid gray 1px",
+          marginLeft: "45%",
+        }}
+      >
+        Manage NewsFeeds
+      </button>
       <div className="employeefeed">
         {newsData.map((ele) => {
           return (

@@ -19,3 +19,18 @@ footer {
   bottom: 0;
 }
 
+.admin-img {
+  background-image: url("https://img.freepik.com/free-photo/aerial-view-businessman-using-computer-laptop_53876-20492.jpg");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.login-admin{
+    background-color: #e4e4e4;
+  border-radius: 10px;
+  padding-bottom: 15px;
+  z-index: 2;
+  /* opacity: 0.9; */
+}

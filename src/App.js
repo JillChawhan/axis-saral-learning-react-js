@@ -42,6 +42,7 @@ import AdminUpload from "./components/All-Modules/Admin Module/Admin-Documents/A
 import SlideBar1 from "./components/HomeNavigation/SlideBar1";
 import SlideBar2 from "./components/HomeNavigation/SlideBar2";
 import SlideBar3 from "./components/HomeNavigation/SlideBar3";
+import AddNews from "./components/All-Modules/Admin Module/Admin-News-Feed/AddNews";
 
 const App = () => {
   return (
@@ -183,6 +184,10 @@ const App = () => {
         <Route
           path="/admin-document-add"
           element={<PrivateAdmin children={<AdminUpload />} />}
+        ></Route>
+        <Route
+          path="/admin-news-add"
+          element={<PrivateAdmin children={<AddNews />} />}
         ></Route>
       </Routes>
     </>

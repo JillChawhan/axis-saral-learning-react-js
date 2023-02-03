@@ -7,6 +7,7 @@ import { useRef } from "react";
 
 // import "./AdminAdd.css";
 import AdminNavigation from "../AdminNavigation";
+import "./AdminAddProjects.css";
 
 const AdminAddProjects = () => {
   const projectNameInputRef = useRef();
@@ -146,7 +147,7 @@ const AdminAddProjects = () => {
   return (
     <>
       <AdminNavigation />
-      <div>
+      <div className="adminProjectAdd">
         <Card>
           <Card.Header>
             <Nav variant="tabs">

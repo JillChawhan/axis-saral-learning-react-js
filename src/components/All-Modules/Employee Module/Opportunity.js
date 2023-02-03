@@ -3,6 +3,15 @@ import ProjectNavigation from "./ProjectNavigation";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import "./Opportunity.css";
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBCardHeader,
+  MDBCardFooter,
+  MDBBtn,
+} from "mdb-react-ui-kit";
 
 const Opportunity = () => {
   const [opportunity, setOpportunity] = useState([]);
@@ -16,43 +25,57 @@ const Opportunity = () => {
   return (
     <>
       <ProjectNavigation />
-      {opportunity.map((ele) => {
-        return (
-          <>
-            <div className="opp-card">
-              <Card>
-                <Card.Header className="oppcard"> Opportunities </Card.Header>
-                <Card.Body>
-                  <Card.Title>Project ID: </Card.Title>
-                  <Card.Text>{ele.projectId}</Card.Text>
-
-                  <Card.Title>Project Designation: </Card.Title>
-                  <Card.Text>{ele.projectDesignation}</Card.Text>
-
-                  <Card.Title>Project Domain: </Card.Title>
-                  <Card.Text>{ele.projectDomain}</Card.Text>
-
-                  <Card.Title>Project Duration: </Card.Title>
-                  <Card.Text>{ele.projectDuration}</Card.Text>
-
-                  <Card.Title>Manager ID: </Card.Title>
-                  <Card.Text>{ele.projectManagerId}</Card.Text>
-
-                  <Card.Title>Salary: </Card.Title>
-                  <Card.Text>{ele.salary}</Card.Text>
-
-                  <Card.Title>Project Location: </Card.Title>
-                  <Card.Text>{ele.location}</Card.Text>
-
-                  <Card.Title>Opportunity Description: </Card.Title>
-                  <Card.Text>{ele.description}</Card.Text>
-                </Card.Body>
-              </Card>
-              <hr />
-            </div>
-          </>
-        );
-      })}
+      <h1 className="oppHead"> Opportunities </h1>
+      <div className="opportunityEmp">
+        {opportunity.map((ele) => {
+          return (
+            <>
+              <div className="opp-card">
+                <div className="card-container">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th className="bold-text">Project ID </th>
+                        <th className="bold-text">{ele.projectId}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="light-text">Project Designation</td>
+                        <td className="light-text">{ele.projectDesignation}</td>
+                      </tr>
+                      <tr>
+                        <td className="light-text">Project Domain</td>
+                        <td className="light-text">{ele.projectDomain}</td>
+                      </tr>
+                      <tr>
+                        <td className="light-text">Project Duration</td>
+                        <td className="light-text">{ele.projectDuration}</td>
+                      </tr>
+                      <tr>
+                        <td className="light-text">Manager ID</td>
+                        <td className="light-text">{ele.projectManagerId}</td>
+                      </tr>
+                      <tr>
+                        <td className="light-text">Salary</td>
+                        <td className="light-text">{ele.salary}</td>
+                      </tr>
+                      <tr>
+                        <td className="light-text">Project Location</td>
+                        <td className="light-text">{ele.location}</td>
+                      </tr>
+                      <tr>
+                        <td className="light-text">Opportunity Description</td>
+                        <td className="light-text">{ele.description}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </>
+          );
+        })}
+      </div>
     </>
   );
 };
