@@ -24,7 +24,7 @@ const Products = () => {
         {productData.map((ele) => {
           return (
             <>
-              <div className="projectCard">
+              <div className="projectCard" style={{ height: "375px" }}>
                 <Card>
                   <Card.Header className="cardHeader">
                     {" "}

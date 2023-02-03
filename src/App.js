@@ -39,6 +39,9 @@ import JoiningLetter from "./components/All-Modules/Employee Module/Employee-Doc
 import IncrementLetter from "./components/All-Modules/Employee Module/Employee-Documents/IncrementLetter";
 import AdminAddProjects from "./components/All-Modules/Admin Module/Admin-Project/AdminAddProjects";
 import AdminUpload from "./components/All-Modules/Admin Module/Admin-Documents/AdminUpload";
+import SlideBar1 from "./components/HomeNavigation/SlideBar1";
+import SlideBar2 from "./components/HomeNavigation/SlideBar2";
+import SlideBar3 from "./components/HomeNavigation/SlideBar3";
 
 const App = () => {
   return (
@@ -56,6 +59,18 @@ const App = () => {
         <Route
           path="/employee-module"
           element={<PrivateRouteAxis children={<EmployeeNavigation />} />}
+        ></Route>
+        <Route
+          path="/employee-module-scd"
+          element={<PrivateRouteAxis children={<SlideBar1 />} />}
+        ></Route>
+        <Route
+          path="/employee-module-sop"
+          element={<PrivateRouteAxis children={<SlideBar2 />} />}
+        ></Route>
+        <Route
+          path="/employee-module-policy"
+          element={<PrivateRouteAxis children={<SlideBar3 />} />}
         ></Route>
         <Route
           path="/employee-project"
