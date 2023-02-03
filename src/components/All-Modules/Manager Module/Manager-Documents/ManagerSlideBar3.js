@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import ManagerSOP from "./Manager-Documents/ManagerSOP";
+import ManagerSOP from "./ManagerSOP";
 
 import { useNavigate } from "react-router-dom";
 import "./ManagerSlideBar.css";
+import ManagerProjectNav from "../ManagerProjectNav";
 
-const ManagerSlideBar = () => {
+const ManagerSlideBar3 = () => {
   const navigate = useNavigate();
 
   const scdClick = () => {
@@ -21,6 +22,7 @@ const ManagerSlideBar = () => {
 
   return (
     <>
+      <ManagerProjectNav />
       <div className="div3">
         <div className="div1">
           <h4>DOCUMENTS</h4>
@@ -38,4 +40,4 @@ const ManagerSlideBar = () => {
   );
 };
 
-export default ManagerSlideBar;
+export default ManagerSlideBar3;

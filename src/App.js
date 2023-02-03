@@ -43,6 +43,9 @@ import SlideBar1 from "./components/HomeNavigation/SlideBar1";
 import SlideBar2 from "./components/HomeNavigation/SlideBar2";
 import SlideBar3 from "./components/HomeNavigation/SlideBar3";
 import AddNews from "./components/All-Modules/Admin Module/Admin-News-Feed/AddNews";
+import ManagerSlideBar1 from "./components/All-Modules/Manager Module/Manager-Documents/ManagerSlideBar1";
+import ManagerSlideBar2 from "./components/All-Modules/Manager Module/Manager-Documents/ManagerSlideBar2";
+import ManagerSlideBar3 from "./components/All-Modules/Manager Module/Manager-Documents/ManagerSlideBar3";
 
 const App = () => {
   return (
@@ -144,6 +147,18 @@ const App = () => {
         <Route
           path="/manager-news-feed"
           element={<PrivateRouteManager children={<ManagerNewsFeed />} />}
+        ></Route>
+        <Route
+          path="/manager-module-sop"
+          element={<PrivateRouteManager children={<ManagerSlideBar1 />} />}
+        ></Route>
+        <Route
+          path="/manager-module-scd"
+          element={<PrivateRouteManager children={<ManagerSlideBar2 />} />}
+        ></Route>
+        <Route
+          path="/manager-module-policy"
+          element={<PrivateRouteManager children={<ManagerSlideBar3 />} />}
         ></Route>
         <Route
           path="/admin-module"

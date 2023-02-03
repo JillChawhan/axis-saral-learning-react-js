@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import { useState } from "react";
 import axios from "axios";
+import "./ManagerProjectDetails.css";
 
 const ManagerProjectDetails = () => {
   let managerData1 = localStorage.getItem("ManagerProjectData");
@@ -104,6 +105,7 @@ const ManagerProjectDetails = () => {
           </Card.Header>
           <Card.Body
             style={{ display: projectDetailsChange ? "block" : "none" }}
+            className="managerProjectDetails"
           >
             <Card.Title>Project Name: </Card.Title>
             <Card.Text> {managerData2.projectName} </Card.Text>
@@ -119,6 +121,7 @@ const ManagerProjectDetails = () => {
               <>
                 <Card.Body
                   style={{ display: managerDetailsChange ? "block" : "none" }}
+                  className="managerProjectDetails"
                 >
                   <Card.Title>Manager Name: </Card.Title>
                   <Card.Text> {ele.managerName} </Card.Text>
@@ -144,6 +147,7 @@ const ManagerProjectDetails = () => {
                     style={{
                       display: employeeDetailsChange ? "block" : "none",
                     }}
+                    className="managerProjectDetails"
                   >
                     <Card.Title>Employee Name: </Card.Title>
                     <Card.Text> {ele.employeeName} </Card.Text>
@@ -170,6 +174,7 @@ const ManagerProjectDetails = () => {
               <>
                 <Card.Body
                   style={{ display: supportTeamDetails ? "block" : "none" }}
+                  className="managerProjectDetails"
                 >
                   <Card.Title>Employee Name: </Card.Title>
                   <Card.Text> {ele.employeeName} </Card.Text>
@@ -199,6 +204,7 @@ const ManagerProjectDetails = () => {
                   style={{
                     display: stakeHolderDetailsChange ? "block" : "none",
                   }}
+                  className="managerProjectDetails"
                 >
                   <Card.Title>Stakeholder Name: </Card.Title>
                   <Card.Text> {ele.stakeholderName} </Card.Text>
