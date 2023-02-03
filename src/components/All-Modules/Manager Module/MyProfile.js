@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import ManagerProjectNav from "./ManagerProjectNav";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
+import Button from "@mui/material/Button";
+import CloseIcon from "@mui/icons-material/Close";
+import LockIcon from "@mui/icons-material/Lock";
 
 import {
   MDBCol,
@@ -16,22 +19,61 @@ import {
 } from "mdb-react-ui-kit";
 
 const MyProfile = () => {
-  // const [managerData, setManagerData] = useState([])
+  const [pageset, setPageSet] = useState(true);
+  const [oldpassword, setoldpassword] = useState("");
+  const [newPassword, setnewPassword] = useState("");
 
+  const [confirmPassword, setconfirmPassword] = useState("");
   let managerLoginData1 = localStorage.getItem("managerLogin");
   let managerLoginData2 = JSON.parse(managerLoginData1);
-  // console.log(managerLoginData2)
 
-  // useEffect(() => {
-  //     axios.get("http://localhost:8085/managers").then((response) => {
-  //         setManagerData(response.data)
-  //     })
-  // }, [])
+  function passwoordreset() {
+    setPageSet(false);
+  }
+
+  function close() {
+    setPageSet(true);
+  }
+
+  function pass(e) {
+    setnewPassword(e.target.value);
+  }
+  function pass1(e) {
+    setconfirmPassword(e.target.value);
+  }
+
+  function pass2(e) {
+    setoldpassword(e.target.value);
+  }
+
+  function submit(event) {
+    event.preventDefault();
+
+    if (managerLoginData2.password == oldpassword) {
+      if (newPassword == confirmPassword) {
+        let element = managerLoginData2;
+        element = { ...element, password: newPassword };
+        axios
+          .put(
+            `http://localhost:8085/manager/update/${managerLoginData2.employeeId}`,
+            element
+          )
+          .then((res) => {
+            console.log(res);
+            alert("Password Changed", window.location.reload());
+          });
+      } else {
+        alert("Password and Confirm Password Should be same");
+      }
+    } else {
+      alert("Wrong old password");
+    }
+  }
 
   return (
     <>
       <ManagerProjectNav />
-      {
+      {pageset == true ? (
         <section className="vh-100" style={{ backgroundColor: "#f4f5f7" }}>
           <MDBContainer className="py-4 h-800">
             <MDBRow className="justify-content-center align-items-center h-100">
@@ -117,9 +159,58 @@ const MyProfile = () => {
                 </MDBCard>
               </MDBCol>
             </MDBRow>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              id="btnlogin"
+              style={{ backgroundColor: "#AE275F" }}
+              onClick={passwoordreset}
+            >
+              Change Password
+            </Button>
           </MDBContainer>
         </section>
-      }
+      ) : (
+        <>
+          <div
+            style={{
+              border: "1px solid black",
+              width: "400px",
+              marginLeft: "40%",
+              textAlign: "center",
+              marginTop: "80px",
+              padding: "20px",
+            }}
+          >
+            <div style={{ textAlign: "right" }} onClick={close}>
+              <CloseIcon />
+            </div>
+            <LockIcon />
+            <label>Old Password</label>
+            <input type="password" onChange={pass2} />
+            <LockIcon />
+            <label>Enter New Password</label>
+            <input type="password" onChange={pass} />
+            <LockIcon />
+            <label>Renter Password</label>
+            <input type="password" onChange={pass1} />
+
+            <button
+              style={{
+                borderRadius: "5px",
+                backgroundColor: "#AE275F",
+                color: "white",
+                width: "200px",
+              }}
+              onClick={submit}
+            >
+              Reset Password
+            </button>
+          </div>
+        </>
+      )}
     </>
   );
 };

@@ -42,18 +42,38 @@ export default function AdminLogin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let found = adminData.find((element) => element.adminemailId == emailId);
-    if (found == undefined) {
-      alert("Invalid Credentials");
-    } else {
-      if (found.adminemailId == emailId && found.adminPassword == password) {
-        alert("Login Successful");
-        localStorage.setItem("admin", JSON.stringify(found));
+
+    const loginBody = {
+      username: emailId,
+      password: password,
+    };
+
+    axios
+      .post("http://localhost:8092/admin-security-login", loginBody)
+      .then((response) => {
+        // console.log(response.data);
+        sessionStorage.setItem("adminLogin", response.data.token);
+        alert("Welcome Admin");
         navigate("/admin-news-feed");
-      } else {
-        alert("Credentials are not found");
-      }
-    }
+      })
+      .catch((error) => {
+        alert("Inavlid credentials.");
+      });
+    // let found = adminData.find((element) => element.emailId == emailId);
+    // if (found == undefined) {
+    //   alert("Invalid Credentials");
+    // } else {
+    //   if (found.emailId == emailId && found.password == password) {
+    //     alert("Login Successful");
+    //     localStorage.setItem("admin", JSON.stringify(found));
+    //     navigate("/admin-news-feed");
+    //   } else {
+    //     alert("Credentials are not found");
+    //   }
+    // }
+
+    let found = adminData.find((element) => element.emailId == emailId);
+    localStorage.setItem("admin", JSON.stringify(found));
   };
 
   useEffect(() => {

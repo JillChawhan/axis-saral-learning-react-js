@@ -51,33 +51,38 @@ export default function ManagerLogin() {
 
   let submitButton = (event) => {
     event.preventDefault();
-    // backdata.map((ele) => {
-    //   if(ele.emailId == emailId && ele.password == password){
-    //     alert("Login Successful")
 
-    //     localStorage.setItem("managerLogin", JSON.stringify(ele))
+    const loginBody = {
+      username: emailId,
+      password: password,
+    };
 
-    //     navigate("/manager-module")
-
-    //   }else if (ele.emailId != emailId && ele.password == password){
-    //     alert("Invalid Email Id")
-    //   }else if (ele.emailId == emailId && ele.password != password){
-    //     alert("Invalid Password")
-    //   }
-    // })
-    const found = backdata.find((element) => element.emailId == emailId);
-    //console.log(found);
-    if (found == undefined) {
-      alert("Invalid Credentials");
-    } else {
-      if (found.emailId == emailId && found.password == password) {
+    axios
+      .post("http://localhost:8095/manager-security-login", loginBody)
+      .then((response) => {
+        sessionStorage.setItem("managerDataLogin", response.data.token);
         alert("Login Successfull");
         navigate("/manager-news-feed");
-        localStorage.setItem("managerLogin", JSON.stringify(found));
-      } else {
-        alert("Credentials are not found.");
-      }
-    }
+      })
+      .catch((error) => {
+        alert("Inavlid credentials.");
+      });
+
+    // const found = backdata.find((element) => element.emailId == emailId);
+    // //console.log(found);
+    // if (found == undefined) {
+    //   alert("Invalid Credentials");
+    // } else {
+    //   if (found.emailId == emailId && found.password == password) {
+    //     alert("Login Successfull");
+    //     navigate("/manager-news-feed");
+    //     localStorage.setItem("managerLogin", JSON.stringify(found));
+    //   } else {
+    //     alert("Credentials are not found.");
+    //   }
+    // }
+    const found = backdata.find((element) => element.emailId == emailId);
+    localStorage.setItem("managerLogin", JSON.stringify(found));
   };
 
   useEffect(() => {
